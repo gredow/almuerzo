@@ -1,0 +1,9 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>Nuevo ingrediente</h2>
+<form method="post">{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Guardar</button>
+</form>
+<p>Para los nutrientes por 100 g, agrégalos desde el admin al editar el ingrediente.</p>
+{% endblock %}

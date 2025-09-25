@@ -1,0 +1,26 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>{{ dish.nombre }}</h2>
+<p>{{ dish.descripcion }}</p>
+
+
+<h3>Alimentos</h3>
+<ul>
+{% for di in plato_alimentos %}
+<li>{{ di.alimento.nombre }} — {{ di.gramos }} g</li>
+{% endfor %}
+</ul>
+
+
+<h3>Nutrientes totales del plato</h3>
+<table>
+<thead><tr><th>Nutriente</th><th>Total</th></tr></thead>
+<tbody>
+{% for nid, n in totals.items %}
+<tr><td>{{ n.name }} ({{ n.unit }})</td><td>{{ n.total|floatformat:2 }}</td></tr>
+{% empty %}
+<tr><td colspan="2">Sin datos de nutrientes (agrega nutrientes a los ingredientes).</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

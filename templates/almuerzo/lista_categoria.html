@@ -1,0 +1,18 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>Categorías</h2>
+<table>
+<thead>
+<tr><th>Categoría</th></tr>
+</thead>
+<tbody>
+{% for cat in categorias %}
+<tr>
+<td>{{ cat.nombre }}</td>
+</tr>
+{% empty %}
+<tr><td colspan="2">Sin categorias todavía.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

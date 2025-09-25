@@ -1,0 +1,18 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>Estadísticas por ingrediente</h2>
+<p>Total de personas servidas, sumando todos los platos donde aparece cada ingrediente.</p>
+<table>
+<thead><tr><th>Ingrediente</th><th>Personas servidas</th></tr></thead>
+<tbody>
+{% for row in ingredient_rank %}
+<tr>
+<td>{{ row.ingredient__name }}</td>
+<td>{{ row.total_people|default:0 }}</td>
+</tr>
+{% empty %}
+<tr><td colspan="2">Sin datos aún.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

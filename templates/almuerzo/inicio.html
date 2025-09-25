@@ -1,0 +1,19 @@
+{% extends 'almuerzo/base.html' %}
+
+{% block content %}
+  <h2>Bienvenido al control de Alimentación</h2>
+  <p>Este sistema te permite:</p>
+  <ul>
+    <li>Registrar <strong>alimentos</strong> y sus nutrientes por 100 g.</li>
+    <li>Crear <strong>platos</strong> combinando alimentos.</li>
+    <li>Guardar los <strong>platos servidos</strong> en una fecha, indicando la cantidad de personas.</li>
+    <li>Consultar <strong>estadísticas</strong> de consumo por alimento.</li>
+  </ul>
+
+  <h3>Accesos rápidos</h3>
+  <p>
+    <a href="{% url 'lista_alimento' %}">📋 Lista de alimentos</a><br>
+    <a href="{% url 'cracion_plato' %}">➕ Crear nuevo plato</a><br>
+    <a href="{% url 'estadisticas' %}">📊 Ver estadísticas</a>
+  </p>
+{% endblock %}

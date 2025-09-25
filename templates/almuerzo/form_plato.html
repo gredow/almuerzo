@@ -1,0 +1,22 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>Nuevo plato</h2>
+<form method="post">{% csrf_token %}
+{{ form.as_p }}
+{{ formset.management_form }}
+<h3>Ingredientes del plato</h3>
+<table>
+<thead><tr><th>Ingrediente</th><th>Gramos</th><th>Eliminar</th></tr></thead>
+<tbody>
+{% for f in formset.forms %}
+<tr>
+<td>{{ f.ingredient }}</td>
+<td>{{ f.grams }}</td>
+<td>{% if f.instance.pk %}{{ f.DELETE }}{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<button type="submit">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'almuerzo/base.html' %}
+{% block content %}
+<h2>Alimentos</h2>
+<table>
+<thead>
+<tr><th>Nombre</th><th>Categoría</th></tr>
+</thead>
+<tbody>
+{% for ing in ingredientes %}
+<tr>
+<td>{{ ing.nombre }}</td>
+<td>{{ ing.categoria.nombre }}</td>
+</tr>
+{% empty %}
+<tr><td colspan="2">Sin alimentos todavía.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

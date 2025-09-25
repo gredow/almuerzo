@@ -1,0 +1,40 @@
+{% extends "almuerzo/base.html" %}
+
+{% block content %}
+  <h2>Nuevo servicio</h2>
+
+  {% if msg %}
+    <div class="msg {{ msg_class }}">{{ msg }}</div>
+  {% endif %}
+
+  <form id="servicioForm" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="estudiante_id" id="estudianteInput">
+  </form>
+
+  <style>
+    .msg.error { color: #b00020; font-weight: 600; }
+    .msg.success { color: #0a7f27; font-weight: 600; }
+  </style>
+
+  <script>
+    (function(){
+      let buffer = "";
+
+      document.addEventListener("keydown", function(e){
+        if (e.key === "Enter") {
+          e.preventDefault();  // evita saltos de línea
+          if (buffer.length > 0) {
+            document.getElementById("estudianteInput").value = buffer;
+            document.getElementById("servicioForm").submit();
+            buffer = ""; // limpia para la siguiente
+          }
+        } else if (/^[0-9]$/.test(e.key)) {
+          buffer += e.key; // solo acumula números
+        } else if (e.key === "Backspace") {
+          buffer = buffer.slice(0, -1);
+        }
+      });
+    })();
+  </script>
+{% endblock %}
