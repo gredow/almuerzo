@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import path
 
 from . import views
+from .views import tabla_platos
 from .views_autocomplete import AlimentoAutocomplete
 
 urlpatterns = [
@@ -16,4 +17,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("autocomplete/alimento/", AlimentoAutocomplete.as_view(), name="alimento-autocomplete"),
     path("servicios/nuevo/", views.nuevo_servicio, name="nuevo_servicio"),
+    path('platos/tabla/', tabla_platos, name='tabla_platos'),
+    path("menu/porfecha/", views.menu_por_fecha, name="menu_por_fecha"),
 ]

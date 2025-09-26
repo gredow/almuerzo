@@ -30,7 +30,13 @@ class FormPlato(forms.ModelForm):
 class FormServicio(forms.ModelForm):
     class Meta:
         model = Servicio
-        fields = ["menu", "estudiante", "notas"]
+        fields = ["estudiante", "estudiante"]
+
+class FechaMenuForm(forms.Form):
+    fecha = forms.DateField(
+        label="Fecha del menú",
+        widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
+    )
 
 
 class NuevoServicioForm(forms.Form):

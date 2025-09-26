@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .forms import AlimentoPlatoInlineForm
 from .models import (Alimento, AlimentoPlato, Carrera, Categoria, Estudiante,
-                     EstudianteSeccion, Grado, Menu, MenuAlimento, MenuPlato, Nutriente,
+                     Grado, Menu, MenuAlimento, MenuPlato, Nutriente,
                      NutrienteAlimento, Plato, Seccion, Servicio, Unidad)
 
 
@@ -12,9 +12,11 @@ class AlimentoPlatoInline(admin.TabularInline):
     form = AlimentoPlatoInlineForm
 
 
-class EstudianteSeccionInline(admin.TabularInline):
-    model = EstudianteSeccion
-    extra = 1
+class AlimentoInline(admin.TabularInline):
+    model = Alimento
+    extra = 0
+    fields = ("nombre",)
+    show_change_link = False
 
 
 class MenuAlimentoInline(admin.TabularInline):
@@ -30,6 +32,20 @@ class MenuPlatoInline(admin.TabularInline):
 class NutrienteAlimentoInline(admin.TabularInline):
     model = NutrienteAlimento
     extra = 1
+
+
+class SeccionInline(admin.TabularInline):
+    model = Seccion
+    extra = 0
+    fields = ("nombre", "carrera")
+    show_change_link = False
+
+
+class EstudianteInline(admin.TabularInline):
+    model = Estudiante
+    extra = 0
+    fields = ("nombre", "apellido","numero_orden")
+    show_change_link = False
 
 
 @admin.register(Alimento)
@@ -50,12 +66,12 @@ class CarreraAdmin(admin.ModelAdmin):
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ["nombre"]
+    inlines = [AlimentoInline]
 
 
 @admin.register(Estudiante)
 class EstudianteAdmin(admin.ModelAdmin):
     search_fields = ["nombre"]
-    inlines = [EstudianteSeccionInline]
 
 #EstudianteSeccion: arriba en un Inline
 
@@ -63,6 +79,8 @@ class EstudianteAdmin(admin.ModelAdmin):
 @admin.register(Grado)
 class GradoAdmin(admin.ModelAdmin):
     search_fields = ["nombre"]
+    inlines = [SeccionInline]
+
 
 
 @admin.register(Menu)
@@ -87,13 +105,14 @@ class PlatoAdmin(admin.ModelAdmin):
 
 @admin.register(Seccion)
 class SeccionAdmin(admin.ModelAdmin):
-    inlines = [EstudianteSeccionInline]
+    search_fields = ("nombre",)
+    inlines = [EstudianteInline]
 
 
 @admin.register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
-    list_display = ("menu", "estudiante", "notas")
-    list_filter = ("fecha_servido", "menu")
+    list_display = ("estudiante", "fecha_servido")
+    list_filter = ("fecha_servido",)
 
 
 @admin.register(Unidad)

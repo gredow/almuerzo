@@ -7,6 +7,6 @@ class Nutriente(models.Model):
     unidad = models.ForeignKey(Unidad, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ["nombre"]
+        ordering = ["id"]
 
     def __str__(self): return f"{self.nombre} ({self.unidad})"

@@ -1,0 +1,47 @@
+{% extends "almuerzo/base.html" %}
+
+
+{% block content %}
+<h2>Platos y sus alimentos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plato</th>
+      <th>Alimento</th>
+      <th>Cantidad (g)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for plato, items in data %}
+      {% if items|length > 0 %}
+        {# Primera fila: plato (con rowspan), primer alimento y su cantidad #}
+        <tr>
+          <td rowspan="{{ items|length }}">
+            <strong>{{ plato.nombre }}</strong>
+            {% if plato.descripcion %}<br><small>{{ plato.descripcion }}</small>{% endif %}
+          </td>
+          <td>{{ items.0.alimento.nombre }}</td>
+          <td>{{ items.0.gramos|floatformat:0 }}</td>
+        </tr>
+        {# Resto de filas: solo alimento y cantidad #}
+        {% for ap in items|slice:"1:" %}
+          <tr>
+            <td>{{ ap.alimento.nombre }}</td>
+            <td>{{ ap.gramos|floatformat:0 }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        {# Sin alimentos: una sola fila, celdas vacías apropiadas #}
+        <tr>
+          <td><strong>{{ plato.nombre }}</strong>{% if plato.descripcion %}<br><small>{{ plato.descripcion }}</small>{% endif %}</td>
+          <td><em>Sin alimentos</em></td>
+          <td>—</td>
+        </tr>
+      {% endif %}
+    {% empty %}
+      <tr><td colspan="3"><em>No hay platos registrados.</em></td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

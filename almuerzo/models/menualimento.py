@@ -6,6 +6,7 @@ from .alimento import Alimento
 class MenuAlimento(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     alimento = models.ForeignKey(Alimento, on_delete=models.CASCADE)
+    gramos = models.FloatField(help_text="Cantidad usada en la receta (gramos)")
 
     class Meta:
         unique_together = ("menu", "alimento")

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "dal",
     "dal_select2",
+    'mssql',
     'almuerzo',
 ]
 
@@ -76,12 +77,29 @@ WSGI_APPLICATION = 'almuerzo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'almuerzodb',
+        'HOST': r'localhost\SQLEXPRESS',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'trusted_connection': 'yes',
+            'encrypt': 'no',
+            'trustServerCertificate': 'yes',
+            'connection_timeout': 30,
+        },
     }
 }
+
 
 
 # Password validation
@@ -106,13 +124,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
+
 LANGUAGE_CODE = 'es-do'
+USE_L10N = False
 
 TIME_ZONE = "America/Santo_Domingo"
 
 USE_I18N = True
 
 USE_TZ = True
+
+
+DEFAULT_CHARSET = 'utf-8'
+FILE_CHARSET = 'utf-8'
 
 
 # Static files (CSS, JavaScript, Images)

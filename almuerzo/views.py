@@ -1,11 +1,14 @@
+from collections import defaultdict
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum, Q
 from .models import (Alimento, AlimentoPlato, Categoria, Estudiante, Menu,
                      NutrienteAlimento, Plato, Servicio)
-from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio
+from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio, FechaMenuForm
 from django.utils import timezone
 from django.db import IntegrityError
 from .forms import NuevoServicioForm
+from django.db.models import Prefetch
 
 
 def inicio(request):
@@ -112,19 +115,117 @@ def nuevo_servicio(request):
             return render(request, "almuerzo/nuevo_servicio.html", {"form": form, "msg": msg, "msg_class": msg_class})
 
         # 3) ¿Ya tomó el servicio hoy?
-        ya_tomo = Servicio.objects.filter(menu=menu, estudiante=estudiante, fecha_servido=hoy).exists()
+        ya_tomo = False
+        # ya_tomo = Servicio.objects.filter(menu=menu, estudiante=estudiante, fecha_servido=hoy).exists()
         if ya_tomo:
-            msg = f"{estudiante} ya tomó el servicio del menú de hoy ({menu.nombre})."
+            msg = f"{estudiante} ya tomó el servicio del menú de hoy."
             msg_class = "error"
         else:
             try:
-                Servicio.objects.create(menu=menu, estudiante=estudiante)
-                msg = f"Servicio agregado para {estudiante} en el menú de hoy ({menu.nombre})."
+                Servicio.objects.create(estudiante=estudiante)
+                msg = f"Servicio agregado para {estudiante} en el menú de hoy."
                 msg_class = "success"
                 form = NuevoServicioForm()  # limpia el campo
             except IntegrityError:
                 # Respaldo por si la unicidad salta al mismo tiempo
-                msg = f"{estudiante} ya tomó el servicio del menú de hoy ({menu.nombre})."
+                msg = f"{estudiante} ya tomó el servicio del menú de hoy."
                 msg_class = "error"
 
     return render(request, "almuerzo/nuevo_servicio.html", {"form": form, "msg": msg, "msg_class": msg_class})
+
+
+def tabla_platos(request):
+    platos = (
+        Plato.objects
+        .prefetch_related(
+            Prefetch(
+                'alimentos_plato',
+                queryset=AlimentoPlato.objects.select_related('alimento').order_by('alimento__nombre')
+            )
+        )
+        .order_by('nombre')
+    )
+    # Preparamos una lista (plato, items) para facilitar el rowspan en el template
+    data = [(p, list(p.alimentos_plato.all())) for p in platos]
+    return render(request, 'almuerzo/platos_tabla.html', {'data': data})
+
+
+def menu_por_fecha(request):
+    """
+    Selecciona una fecha; carga el menú con fecha_creacion == fecha.
+    Renderiza:
+      - Nombre y descripción del menú
+      - Platos -> Alimentos (gramos) -> Nutrientes (valor escalado)
+      - Totales por nutriente del menú completo
+    """
+    form = FechaMenuForm(request.GET or None)
+
+    menu = None
+    platos_render = []         # [{plato: Plato, items: [{alimento, gramos, nutrientes: [{nutriente, valor}]}]}]
+    nutrientes_totales = None  # [{id, nombre, total, unidad}]
+
+    if form.is_valid():
+        fecha = form.cleaned_data["fecha"]
+
+        # Busca el menú por fecha (ajusta si usas otro campo/criterio):
+        menu = (Menu.objects
+                    .filter(fecha_creacion=fecha)
+                    .first())
+
+        if menu:
+            # Traemos todas las filas AlimentoPlato de los platos del menú
+            qs_alimentos_plato = (AlimentoPlato.objects
+                .filter(plato__menuplato__menu=menu)
+                .select_related("plato", "alimento")
+                .prefetch_related("alimento__nutrientealimento_set__nutriente")
+            )
+
+            # Armamos estructura por plato
+            platos_dict = {}  # plato_id -> {'plato': obj, 'items': [...]}
+            for ap in qs_alimentos_plato:
+                entry = platos_dict.setdefault(ap.plato_id, {"plato": ap.plato, "items": []})
+
+                # Nutrientes del alimento escalados por gramos usados en la receta
+                nutrientes_escalados = []
+                for na in ap.alimento.nutrientealimento_set.all():
+                    valor_escalado = (na.valor_por_100g * ap.gramos) / 100.0
+                    nutrientes_escalados.append({
+                        "nutriente": na.nutriente,   # se usará .nombre y .unidad en la template
+                        "valor": valor_escalado,
+                    })
+
+                entry["items"].append({
+                    "alimento": ap.alimento,
+                    "gramos": ap.gramos,
+                    "nutrientes": nutrientes_escalados,
+                })
+
+            platos_render = list(platos_dict.values())
+
+            # Totales por nutriente en TODO el menú
+            totales = defaultdict(float)
+            nombres = {}
+            unidades = {}
+
+            for bloque in platos_render:
+                for item in bloque["items"]:
+                    for nut in item["nutrientes"]:
+                        n = nut["nutriente"]
+                        nid = n.id
+                        totales[nid] += nut["valor"]
+                        nombres[nid] = getattr(n, "nombre", f"Nutriente {nid}")
+                        unidades[nid] = getattr(n, "unidad", "")
+
+            nutrientes_totales = [
+                {"id": nid, "nombre": nombres[nid], "total": total, "unidad": unidades[nid]}
+                for nid, total in totales.items()
+            ]
+            nutrientes_totales.sort(key=lambda x: x["nombre"].lower())
+
+    ctx = {
+        "form": form,
+        "menu": menu,
+        "platos": platos_render,
+        "nutrientes_totales": nutrientes_totales,
+    }
+    return render(request, "almuerzo/menu_por_fecha.html", ctx)

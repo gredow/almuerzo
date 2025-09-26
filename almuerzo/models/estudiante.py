@@ -10,13 +10,13 @@ class Estudiante(models.Model):
         ("F", "Femenino"),
     ]
 
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    lugar_de_residencia = models.CharField(max_length=100, default="AZUA")
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    lugar_de_residencia = models.CharField(max_length=50, default="AZUA")
     numero_orden = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(50)])
     sexo = models.CharField(max_length=1, choices=SEXO_OPCIONES,default="M")
     fecha_nacimiento = models.DateField(default="01-01-2010")
-    # seccion = models.ForeignKey(Seccion, on_delete=models.CASCADE, related_name="secciones")
+    seccion = models.ForeignKey(Seccion, on_delete=models.CASCADE, related_name="secciones")
 
     class Meta:
         ordering = ["apellido", "nombre"]

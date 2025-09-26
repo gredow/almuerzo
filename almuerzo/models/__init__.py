@@ -3,7 +3,6 @@ from .alimentoplato import AlimentoPlato
 from .carrera import Carrera
 from .categoria import Categoria
 from .estudiante import Estudiante
-from .estudianteseccion import EstudianteSeccion
 from .grado import Grado
 from .menu import Menu
 from .menuplato import MenuPlato
