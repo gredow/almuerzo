@@ -1,0 +1,53 @@
+{% extends "almuerzo/base.html" %}
+
+{% block content %}
+<h2>Menú por fecha</h2>
+
+<form method="get" class="form-fecha">
+  <label for="id_fecha">Selecciona una fecha</label>
+  {{ form.fecha }}
+  <button type="submit">Cargar menú</button>
+</form>
+
+{% if menu %}
+  <article class="menu-resumen">
+    <h3>{{ menu.nombre }}</h3>
+    {% if menu.descripcion %}
+      <p>{{ menu.descripcion }}</p>
+    {% endif %}
+    <p><small>Fecha del menú: {{ menu.fecha_creacion|date:"d-m-Y" }}</small></p>
+  </article>
+
+  <section class="totales">
+    <h3>Totales por nutriente del menú</h3>
+    {% if nutrientes_totales %}
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Nutriente</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for n in nutrientes_totales %}
+            <tr>
+              <td>
+                {{ n.nombre }}
+                {% if n.unidad %}<span class="unidad">({{ n.unidad }})</span>{% endif %}
+              </td>
+              <td class="texto-derecha-espaciado">{{ n.total|stringformat:".2f" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="muted">No hay nutrientes para sumar en este menú.</p>
+    {% endif %}
+  </section>
+
+{% elif form.is_bound %}
+  <p class="alert">No se encontró un menú para la fecha seleccionada.</p>
+{% else %}
+  <p>Elige una fecha y presiona <strong>Cargar menú</strong>.</p>
+{% endif %}
+{% endblock %}
