@@ -9,11 +9,101 @@
     <li>Guardar los <strong>platos servidos</strong> en una fecha, indicando la cantidad de personas.</li>
     <li>Consultar <strong>estadísticas</strong> de consumo por alimento.</li>
   </ul>
-
-  <h3>Accesos rápidos</h3>
-  <p>
-    <a href="{% url 'lista_alimento' %}">📋 Lista de alimentos</a><br>
-    <a href="{% url 'cracion_plato' %}">➕ Crear nuevo plato</a><br>
-    <a href="{% url 'estadisticas' %}">📊 Ver estadísticas</a>
-  </p>
 {% endblock %}
+
+
+{% comment %} {% extends 'almuerzo/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="home-container">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Control de Alimentación<br><span class="muted">Instituto Politécnico de Azua</span></h1>
+        <p>
+          Bienvenido al sistema de control del almuerzo. Aquí podrás consultar el menú del día,
+          registrar servicios de estudiantes y analizar estadísticas sobre los alimentos más consumidos.
+        </p>
+        <div class="cta">
+          <a href="#" class="btn btn-primary">➕ Registrar servicio</a>
+          <a href="#" class="btn">📅 Ver menú de hoy</a>
+          <a href="#" class="btn">📊 Ver estadísticas</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="{% static 'images/hero-almuerzo.jpg' %}" alt="Imagen ilustrativa" onerror="this.style.display='none';">
+        <figcaption class="hero-badge">Sistema activo</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Indicadores -->
+  <section class="grid kpis">
+    <article class="card">
+      <h3>Total de estudiantes</h3>
+      <p class="muted">Ejemplo: 520</p>
+    </article>
+    <article class="card">
+      <h3>Servicios hoy</h3>
+      <p class="muted">Ejemplo: 250</p>
+    </article>
+    <article class="card">
+      <h3>Servicios este mes</h3>
+      <p class="muted">Ejemplo: 4800</p>
+    </article>
+    <article class="card">
+      <h3>Alimento más consumido</h3>
+      <p class="muted">Ejemplo: Arroz</p>
+    </article>
+  </section>
+
+  <!-- Menú de hoy -->
+  <section class="card">
+    <div class="section-title">
+      <h2>Menú de hoy</h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <strong>Plato 1</strong>
+        <div class="chips">
+          <span class="chip">Arroz</span>
+          <span class="chip">Habichuelas</span>
+          <span class="chip">Pollo</span>
+        </div>
+      </div>
+      <div class="menu-item">
+        <strong>Plato 2</strong>
+        <div class="chips">
+          <span class="chip">Ensalada</span>
+          <span class="chip">Aguacate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accesos rápidos -->
+  <section class="grid quick">
+    <a href="#">🥦 Alimentos <span>Gestionar alimentos</span></a>
+    <a href="#">🍽️ Platos <span>Gestionar platos</span></a>
+    <a href="#">🏷️ Categorías <span>Ver categorías</span></a>
+    <a href="#">🧾 Servicios <span>Historial</span></a>
+    <a href="#">📈 Reportes <span>Consumo</span></a>
+    <a href="#">📊 Estadísticas <span>Tendencias</span></a>
+  </section>
+
+  <!-- Gráfico -->
+  <section class="card">
+    <div class="section-title">
+      <h2>Consumo por alimento (ejemplo)</h2>
+    </div>
+    <div class="chart-canvas"></div>
+  </section>
+</div>
+
+{% endblock %}
+
+ {% endcomment %}

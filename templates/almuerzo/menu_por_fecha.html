@@ -6,7 +6,7 @@
 <form method="get" class="form-fecha">
   <label for="id_fecha">Selecciona una fecha</label>
   {{ form.fecha }}
-  <button type="submit">Cargar menú</button>
+  <button class="btn-primary" type="submit">Cargar menú</button>
 </form>
 
 {% if menu %}
@@ -18,10 +18,13 @@
     <p><small>Fecha del menú: {{ menu.fecha_creacion|date:"d-m-Y" }}</small></p>
   </article>
 
+ 
+
+
   <section class="totales">
     <h3>Totales por nutriente del menú</h3>
     {% if nutrientes_totales %}
-      <table class="tabla">
+      <table class="table table-bordered table-dark table-striped w-auto">
         <thead>
           <tr>
             <th>Nutriente</th>

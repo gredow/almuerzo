@@ -1,0 +1,94 @@
+{% extends "almuerzo/base.html" %}
+
+{% block content %}
+<h2>Porcentaje promedio de estudiantes que comen cada alimento</h2>
+
+<form id="filtro-form" class="flex gap-2 items-end" style="margin-bottom: 1rem;">
+  <div>
+    <label for="categoria">Categoría</label>
+    <select id="categoria" name="categoria_id">
+      <option value="">Todas</option>
+      {% for c in categorias %}
+        <option value="{{ c.id }}">{{ c.nombre }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit">Aplicar</button>
+</form>
+
+<div style="max-width: 980px;">
+  <canvas id="chartAlimentos" height="140"></canvas>
+</div>
+
+<p id="meta" class="muted" style="margin-top: .75rem;"></p>
+
+<!-- Chart.js (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function() {
+  const ctx = document.getElementById('chartAlimentos').getContext('2d');
+  let chart;
+
+  function renderChart(labels, data) {
+    if (chart) chart.destroy();
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '% de estudiantes (promedio)',
+          data: data,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { callback: (v) => v + '%' },
+            title: { display: true, text: 'Porcentaje' }
+          },
+          x: {
+            title: { display: true, text: 'Alimentos' }
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: (ctx) => `${ctx.formattedValue}%`
+            }
+          },
+          legend: { display: false }
+        }
+      }
+    });
+  }
+
+  async function loadData() {
+    const form = document.getElementById('filtro-form');
+    const params = new URLSearchParams(new FormData(form));
+    const url = params.toString()
+      ? `/api/alimentos/porcentaje/?${params.toString()}`
+      : `/api/alimentos/porcentaje/`;
+
+    const res = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+    const json = await res.json();
+
+    renderChart(json.labels, json.data);
+
+    const meta = document.getElementById('meta');
+    meta.textContent = `Base: ${json.meta.total_estudiantes} estudiante(s). Fechas consideradas: ${json.meta.fechas_consideradas}. Categoría: ${json.meta.categoria}.`;
+  }
+
+  document.getElementById('filtro-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    loadData();
+  });
+
+  // primera carga
+  loadData();
+})();
+</script>
+{% endblock %}

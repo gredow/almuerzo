@@ -1,10 +1,69 @@
+<!-- templates/excel_result.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Resultados del Excel</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Datos del Archivo Excel</h1>
+        <p>Total de registros: {{ row_count }}</p>
 
+        {% if data %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                            {% for key, value in row.original_data.items %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                            <td>
+                                <button onclick="processRow({{ forloop.counter0 }})">Procesar</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron datos.</p>
+        {% endif %}
+
+        <a href="{% url 'upload_excel' %}">Cargar otro archivo</a>
+    </div>
+
+    <script>
+        function processRow(index) {
+            alert(`Procesando fila ${index + 1}`);
+            // Aquí puedes agregar lógica para procesar filas individuales
+        }
+    </script>
 </body>
 </html>

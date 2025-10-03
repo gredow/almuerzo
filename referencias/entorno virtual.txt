@@ -1,0 +1,4 @@
+python3 -m venv .vent
+source .vent/bin/activate
+
+pip freeze > requirements.txt

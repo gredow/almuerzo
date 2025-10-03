@@ -4,29 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aae9ff81-1a44-46b0-95b8-4291d236e736" name="Changes" comment="Primer commit">
-      <change afterPath="$PROJECT_DIR$/almuerzo/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almuerzo/templatetags/dict_extras.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/almuerzo/menu_por_fecha.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/almuerzo/platos_tabla.html" afterDir="false" />
+    <list default="true" id="aae9ff81-1a44-46b0-95b8-4291d236e736" name="Changes" comment="Estructura básica completa">
+      <change afterPath="$PROJECT_DIR$/almuerzo/static/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/almuerzo/static/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/view_creacion_plato.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/view_upload_excel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/referencias/nssm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/almuerzo/excel_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/almuerzo/filtro_servicio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/almuerzo/upload_excel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/estudiante.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/estudiante.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/estudianteseccion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/menualimento.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/menualimento.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/nutriente.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/nutriente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/models/servicio.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/servicio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/static/images/favicon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/almuerzo/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/almuerzo/nuevo_servicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/nuevo_servicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/almuerzo/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/almuerzo/menu_por_fecha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/menu_por_fecha.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,12 +75,13 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;Excel (xlsx)&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Gredow/programacion/almuerzo/almuerzo/models&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Gredow/programacion/almuerzo/templates/almuerzo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -96,9 +94,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Gredow\programacion\almuerzo\templates\almuerzo" />
       <recent name="C:\Gredow\programacion\almuerzo\almuerzo\models" />
       <recent name="C:\Gredow\programacion\almuerzo" />
       <recent name="C:\Gredow\programacion\almuerzo\almuerzo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Gredow\programacion\almuerzo\almuerzo" />
+      <recent name="C:\Gredow\programacion\almuerzo\almuerzo\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -153,7 +156,16 @@
       <workItem from="1758844289408" duration="5496000" />
       <workItem from="1758855184140" duration="10363000" />
       <workItem from="1758891336950" duration="2562000" />
-      <workItem from="1758898183493" duration="6224000" />
+      <workItem from="1758898183493" duration="13807000" />
+      <workItem from="1759011945665" duration="5111000" />
+      <workItem from="1759147841198" duration="2361000" />
+      <workItem from="1759162470498" duration="2661000" />
+      <workItem from="1759192920014" duration="1381000" />
+      <workItem from="1759199188424" duration="3116000" />
+      <workItem from="1759206137141" duration="3475000" />
+      <workItem from="1759234190681" duration="375000" />
+      <workItem from="1759239629927" duration="8391000" />
+      <workItem from="1759322340713" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit">
       <option name="closed" value="true" />
@@ -163,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758764010562</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Estructura básica completa">
+      <option name="closed" value="true" />
+      <created>1758906202521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758906202521</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +202,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primer commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primer commit" />
+    <MESSAGE value="Estructura básica completa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura básica completa" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/almuerzo/forms.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

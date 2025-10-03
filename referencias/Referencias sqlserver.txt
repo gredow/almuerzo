@@ -1,0 +1,4 @@
+create login ipa
+with password = 'ipa/3258!',
+check_policy = off;
+

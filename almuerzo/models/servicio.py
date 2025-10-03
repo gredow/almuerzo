@@ -12,7 +12,7 @@ class Servicio(models.Model):
     fecha_servido = models.DateField(auto_now_add=True)
 
     class Meta:
-        ordering = ["-estudiante"]
+        ordering = ["-fecha_servido"]
         unique_together = ("estudiante", "fecha_servido")
 
     def __str__(self):

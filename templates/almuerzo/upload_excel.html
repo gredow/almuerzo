@@ -1,10 +1,62 @@
+<!-- templates/upload_excel.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cargar Archivo Excel</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .messages {
+            margin: 20px 0;
+        }
+        .alert {
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="container">
+        <h1>Cargar Archivo Excel</h1>
+        
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form.excel_file.label_tag }}
+                {{ form.excel_file }}
+                {% if form.excel_file.help_text %}
+                    <small>{{ form.excel_file.help_text }}</small>
+                {% endif %}
+                {% if form.excel_file.errors %}
+                    <div class="error">{{ form.excel_file.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit">Subir y Procesar</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,0 +1,31 @@
+# Nombre del servicio
+$n="AppAlmuerzo"
+
+# Rutas (ajusta a las tuyas)
+$PY="C:\Gredow\programacion\almuerzo\.venv\Scripts\python.exe"
+$DIR="C:\Gredow\programacion\almuerzo"
+$LOGS="C:\Users\User\AppAlmuerzo\logs"
+
+# Crea carpeta de logs con permisos
+New-Item -ItemType Directory -Force -Path $LOGS | Out-Null
+
+# Instala/edita servicio
+nssm install $n $PY
+nssm set $n AppDirectory $DIR
+nssm set $n AppParameters "-m waitress --listen=0.0.0.0:8000 almuerzo.wsgi:application"
+
+# Redirección de salida (¡rutas deben existir!)
+nssm set $n AppStdout "$LOGS\stdout.log"
+nssm set $n AppStderr "$LOGS\stderr.log"
+# Que agregue (append) en vez de truncar
+nssm set $n AppStdoutCreationDisposition 4
+nssm set $n AppStderrCreationDisposition 4
+
+# (Opcional) Evita ventana de consola
+nssm set $n AppNoConsole 1
+
+# (Opcional) Variables de entorno si las necesitas
+# nssm set $n AppEnvironmentExtra "DJANGO_SETTINGS_MODULE=almuerzo.settings"
+
+# Throttle (si estaba “ahogado” por reinicios rápidos, aumenta margen)
+nssm set $n AppThrottle 5000

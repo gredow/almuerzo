@@ -1,0 +1,81 @@
+[
+  {
+    "model": "almuerzo.Grado",
+    "pk": 4,
+    "fields": { "nombre": "Cuarto" }
+  },
+  {
+    "model": "almuerzo.Grado",
+    "pk": 5,
+    "fields": { "nombre": "Quinto" }
+  },
+  {
+    "model": "almuerzo.Grado",
+    "pk": 6,
+    "fields": { "nombre": "Sexto" }
+  },
+
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 1,
+    "fields": { "nombre": "Desarrollo y Administración de Aplicaciones Informáticas" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 2,
+    "fields": { "nombre": "Agropecuaria" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 3,
+    "fields": { "nombre": "Industrias Alimentarias" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 4,
+    "fields": { "nombre": "Equipos Electrónicos" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 5,
+    "fields": { "nombre": "Instalaciones Eléctricas" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 6,
+    "fields": { "nombre": "Electromecánica de Vehículos" }
+  },
+  {
+    "model": "almuerzo.Carrera",
+    "pk": 7,
+    "fields": { "nombre": "Servicios Gastronómicos" }
+  },
+
+  { "model": "almuerzo.Seccion", "pk": 1, "fields": { "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Cuarto", "grado": 4, "carrera": 1 } },
+  { "model": "almuerzo.Seccion", "pk": 2, "fields": { "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Quinto", "grado": 5, "carrera": 1 } },
+  { "model": "almuerzo.Seccion", "pk": 3, "fields": { "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Sexto", "grado": 6, "carrera": 1 } },
+
+  { "model": "almuerzo.Seccion", "pk": 4, "fields": { "nombre": "Agropecuaria Cuarto", "grado": 4, "carrera": 2 } },
+  { "model": "almuerzo.Seccion", "pk": 5, "fields": { "nombre": "Agropecuaria Quinto", "grado": 5, "carrera": 2 } },
+  { "model": "almuerzo.Seccion", "pk": 6, "fields": { "nombre": "Agropecuaria Sexto", "grado": 6, "carrera": 2 } },
+
+  { "model": "almuerzo.Seccion", "pk": 7, "fields": { "nombre": "Industrias Alimentarias Cuarto", "grado": 4, "carrera": 3 } },
+  { "model": "almuerzo.Seccion", "pk": 8, "fields": { "nombre": "Industrias Alimentarias Quinto", "grado": 5, "carrera": 3 } },
+  { "model": "almuerzo.Seccion", "pk": 9, "fields": { "nombre": "Industrias Alimentarias Sexto", "grado": 6, "carrera": 3 } },
+
+  { "model": "almuerzo.Seccion", "pk": 10, "fields": { "nombre": "Equipos Electrónicos Cuarto", "grado": 4, "carrera": 4 } },
+  { "model": "almuerzo.Seccion", "pk": 11, "fields": { "nombre": "Equipos Electrónicos Quinto", "grado": 5, "carrera": 4 } },
+  { "model": "almuerzo.Seccion", "pk": 12, "fields": { "nombre": "Equipos Electrónicos Sexto", "grado": 6, "carrera": 4 } },
+
+  { "model": "almuerzo.Seccion", "pk": 13, "fields": { "nombre": "Instalaciones Eléctricas Cuarto", "grado": 4, "carrera": 5 } },
+  { "model": "almuerzo.Seccion", "pk": 14, "fields": { "nombre": "Instalaciones Eléctricas Quinto", "grado": 5, "carrera": 5 } },
+  { "model": "almuerzo.Seccion", "pk": 15, "fields": { "nombre": "Instalaciones Eléctricas Sexto", "grado": 6, "carrera": 5 } },
+
+  { "model": "almuerzo.Seccion", "pk": 16, "fields": { "nombre": "Electromecánica de Vehículos Cuarto", "grado": 4, "carrera": 6 } },
+  { "model": "almuerzo.Seccion", "pk": 17, "fields": { "nombre": "Electromecánica de Vehículos Quinto", "grado": 5, "carrera": 6 } },
+  { "model": "almuerzo.Seccion", "pk": 18, "fields": { "nombre": "Electromecánica de Vehículos Sexto", "grado": 6, "carrera": 6 } },
+
+  { "model": "almuerzo.Seccion", "pk": 19, "fields": { "nombre": "Servicios Gastronómicos Cuarto", "grado": 4, "carrera": 7 } },
+  { "model": "almuerzo.Seccion", "pk": 20, "fields": { "nombre": "Servicios Gastronómicos Quinto", "grado": 5, "carrera": 7 } },
+  { "model": "almuerzo.Seccion", "pk": 21, "fields": { "nombre": "Servicios Gastronómicos Sexto", "grado": 6, "carrera": 7 } }
+]

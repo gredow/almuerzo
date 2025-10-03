@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum, Q
 from .models import (Alimento, AlimentoPlato, Categoria, Estudiante, Menu,
                      NutrienteAlimento, Plato, Servicio)
-from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio, FechaMenuForm
+from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio, FechaMenuForm, FiltroServicioForm
 from django.utils import timezone
 from django.db import IntegrityError
 from .forms import NuevoServicioForm
@@ -33,19 +33,19 @@ def creacion_alimento(request):
     return render(request, "almuerzo/form_alimento.html", {"form": form})
 
 
-def cracion_plato(request):
-    plato = Plato()
-    if request.method == "POST":
-        form = FormPlato(request.POST, instance=plato)
-        formset = PlatoAlimentoFormSet(request.POST, instance=plato)
-        if form.is_valid() and formset.is_valid():
-            form.save()
-            formset.save()
-            return redirect("detalle_plato", pk=plato.pk)
-    else:
-        form = FormPlato(instance=plato)
-        formset = PlatoAlimentoFormSet(instance=plato)
-    return render(request, "almuerzo/form_plato.html", {"form": form, "formset": formset})
+# def cracion_plato(request):
+#     plato = Plato()
+#     if request.method == "POST":
+#         form = FormPlato(request.POST, instance=plato)
+#         formset = PlatoAlimentoFormSet(request.POST, instance=plato)
+#         if form.is_valid() and formset.is_valid():
+#             form.save()
+#             formset.save()
+#             return redirect("detalle_plato", pk=plato.pk)
+#     else:
+#         form = FormPlato(instance=plato)
+#         formset = PlatoAlimentoFormSet(instance=plato)
+#     return render(request, "almuerzo/form_plato.html", {"form": form, "formset": formset})
 
 
 def detalle_plato(request, pk):
@@ -173,6 +173,9 @@ def menu_por_fecha(request):
                     .first())
 
         if menu:
+            cantidad_estudiantes = Servicio.objects.filter(
+                fecha_servido=fecha
+            ).values("estudiante").distinct().count()
             # Traemos todas las filas AlimentoPlato de los platos del menú
             qs_alimentos_plato = (AlimentoPlato.objects
                 .filter(plato__menuplato__menu=menu)
@@ -216,11 +219,18 @@ def menu_por_fecha(request):
                         nombres[nid] = getattr(n, "nombre", f"Nutriente {nid}")
                         unidades[nid] = getattr(n, "unidad", "")
 
-            nutrientes_totales = [
-                {"id": nid, "nombre": nombres[nid], "total": total, "unidad": unidades[nid]}
-                for nid, total in totales.items()
-            ]
-            nutrientes_totales.sort(key=lambda x: x["nombre"].lower())
+            orden_ids = [1, 2, 3, 4,5,8,9,10]
+
+        nutrientes_totales = [
+            {"id": nid, "nombre": nombres[nid], "total": total, "unidad": unidades[nid]}
+            for nid, total in totales.items()
+        ]
+
+        # crear un diccionario {id: índice} para acceso rápido
+        mapa_orden = {nid: i for i, nid in enumerate(orden_ids)}
+
+        # usar .get con un valor grande para ids no incluidos en la lista
+        nutrientes_totales.sort(key=lambda x: mapa_orden.get(x["id"], float("inf")))
 
     ctx = {
         "form": form,
@@ -229,3 +239,169 @@ def menu_por_fecha(request):
         "nutrientes_totales": nutrientes_totales,
     }
     return render(request, "almuerzo/menu_por_fecha.html", ctx)
+
+
+def filtro_servicio_view(request):
+    estudiantes = None
+    form = FiltroServicioForm(request.GET or None)
+
+    # Si el usuario ya seleccionó valores válidos, ejecutar búsqueda
+    if form.is_valid():
+        fecha = form.cleaned_data.get("fecha")
+        seccion = form.cleaned_data.get("seccion")
+        if fecha and seccion:
+            estudiantes = Estudiante.objects.filter(
+                servicios__fecha_servido=fecha,
+                seccion=seccion
+            ).distinct().order_by('apellido', 'nombre')
+
+    return render(request, "almuerzo/filtro_servicio.html", {
+        "form": form,
+        "estudiantes": estudiantes
+    })
+
+
+
+from collections import defaultdict
+from statistics import mean
+
+from django.db.models import Prefetch, Count
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.utils import timezone
+
+from .models import (
+    Alimento, AlimentoPlato, Categoria, Estudiante, Menu, MenuPlato, Servicio
+)
+
+
+def alimentos_porcentaje_view(request):
+    """
+    Página con el gráfico y el filtro por categoría.
+    """
+    categorias = Categoria.objects.order_by("nombre").all()
+    return render(request, "almuerzo/alimentos_porcentaje.html", {"categorias": categorias})
+
+
+def api_alimentos_porcentaje(request):
+    """
+    API JSON:
+    Calcula, para cada alimento, el PROMEDIO del porcentaje de estudiantes que lo comieron.
+    Lógica:
+      - Tomamos cada fecha con 'Servicio' (hubo servicio ese día).
+      - Emparejamos con el 'Menu' de esa fecha (Menu.fecha_creacion == fecha_servido).
+      - Por cada alimento que aparece en los platos de ese menú, asumimos que
+        los estudiantes que recibieron el servicio ese día son los que "comieron" ese alimento.
+      - Porcentaje fecha = (#estudiantes con servicio ese día) / (total_estudiantes) * 100
+      - Para cada alimento: promedio de todos sus porcentajes a través de las fechas en que apareció.
+
+    Filtro opcional:
+      - ?categoria_id=<id>  (o ?categoria=<nombre>)
+    """
+    categoria_id = request.GET.get("categoria_id")
+    categoria_nombre = request.GET.get("categoria")
+
+    total_estudiantes = Estudiante.objects.count() or 1  # evitar división por cero
+
+    # 1) Fechas en las que hubo servicio y cuántos estudiantes recibieron servicio en cada fecha
+    servicios_qs = (
+        Servicio.objects
+        .values("fecha_servido")
+        .annotate(cantidad=Count("estudiante", distinct=True))
+        .order_by("fecha_servido")
+    )
+    if not servicios_qs:
+        return JsonResponse({"labels": [], "data": []})
+
+    # Mapa: fecha -> cantidad de servicios (estudiantes distintos)
+    servicios_por_fecha = {row["fecha_servido"]: row["cantidad"] for row in servicios_qs}
+    fechas_servicio = list(servicios_por_fecha.keys())
+
+    # 2) Menús para esas fechas, con prefetch hasta Alimento (y su Categoria)
+    menus = (
+        Menu.objects
+        .filter(fecha_creacion__in=fechas_servicio)
+        .prefetch_related(
+            Prefetch(
+                "menuplato_set",
+                queryset=MenuPlato.objects.select_related("plato").prefetch_related(
+                    Prefetch(
+                        "plato__alimentos_plato",
+                        queryset=AlimentoPlato.objects.select_related("alimento__categoria")
+                    )
+                ),
+            )
+        )
+    )
+
+    # 3) Opcional: filtrar por categoría (para evitar cargar/computar innecesario)
+    categoria_obj = None
+    if categoria_id:
+        try:
+            categoria_obj = Categoria.objects.get(pk=categoria_id)
+        except Categoria.DoesNotExist:
+            categoria_obj = None
+    elif categoria_nombre:
+        try:
+            categoria_obj = Categoria.objects.get(nombre=categoria_nombre)
+        except Categoria.DoesNotExist:
+            categoria_obj = None
+
+    # 4) Agregar porcentajes por alimento
+    porcentajes_por_alimento = defaultdict(list)  # alimento_id -> [porc_fecha, ...]
+    nombre_alimento = {}
+    categoria_alimento = {}
+
+    for menu in menus:
+        fecha = menu.fecha_creacion
+        if fecha not in servicios_por_fecha:
+            continue
+
+        # porcentaje de ese día (respecto al total de estudiantes)
+        porc_dia = (servicios_por_fecha[fecha] / total_estudiantes) * 100.0
+
+        # Recolectar alimentos únicos del menú de ese día
+        alimentos_del_menu = set()
+        for mp in menu.menuplato_set.all():
+            for ap in mp.plato.alimentos_plato.all():
+                a = ap.alimento
+                # Filtro por categoría si vino en la query
+                if categoria_obj and a.categoria_id != categoria_obj.id:
+                    continue
+                alimentos_del_menu.add(a)
+
+        # Asignar el porcentaje del día a cada alimento servido ese día
+        for a in alimentos_del_menu:
+            porcentajes_por_alimento[a.id].append(porc_dia)
+            nombre_alimento[a.id] = a.nombre
+            categoria_alimento[a.id] = a.categoria.nombre if a.categoria_id else ""
+
+    # 5) Calcular promedio por alimento
+    resultado = []
+    for aid, lst in porcentajes_por_alimento.items():
+        if not lst:
+            continue
+        resultado.append({
+            "alimento_id": aid,
+            "alimento": nombre_alimento.get(aid, f"Alimento {aid}"),
+            "categoria": categoria_alimento.get(aid, ""),
+            "porcentaje_promedio": round(mean(lst), 2),
+            "muestras": len(lst),  # cuántas fechas contribuyeron
+        })
+
+    # Orden sugerido: desc por porcentaje
+    resultado.sort(key=lambda x: x["porcentaje_promedio"], reverse=True)
+
+    # Respuesta para Chart.js
+    labels = [r["alimento"] for r in resultado]
+    data = [r["porcentaje_promedio"] for r in resultado]
+
+    return JsonResponse({
+        "labels": labels,
+        "data": data,
+        "meta": {
+            "total_estudiantes": total_estudiantes,
+            "fechas_consideradas": len(fechas_servicio),
+            "categoria": (categoria_obj.nombre if categoria_obj else "Todas"),
+        }
+    })

@@ -1,0 +1,28 @@
+Creame los inserts para la tabla almuezo_nutrientealimento en sqlserver correspondiente a Arvejas, tomando en cuenta que la tabla nutriente tiene los siguientes datos:
+
+id,nombre,unidad_id
+1,Energía,1
+2,Agua,2
+3,Carbohidratos totales,2
+4,Azúcares simples,2
+5,Fibra dietética,2
+6,Calcio,3
+7,Hierro,3
+8,Proteína,2
+9,Grasa,2
+10,Colesterol,3
+11,Potasio,3
+12,Vitamina C,3
+13,Vitamina A (µg),4
+14,Vitamina K,4
+15,Folato,4
+16,Omega-3,3
+17,Zinc,3
+18,Lycopene,4
+19,Vitamina D,5
+20,Vitamina A (IU),5
+21,Vitamina B6,3
+
+mientras que Arvejas en la tabla almuezo_alimento tiene el id 32
+
+Referencia la tabla y sus campos de la siguiente manera [almuerzodb].[dbo].[almuerzo_nutrientealimento] (alimento_id, nutriente_id, valor_por_100g)

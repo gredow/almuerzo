@@ -1,53 +1,54 @@
 {% extends "almuerzo/base.html" %}
 
 {% block content %}
-<h2>Menú por fecha</h2>
+    
+  <h1>Buscar servicios por fecha y sección</h1>
 
-<form method="get" class="form-fecha">
-  <label for="id_fecha">Selecciona una fecha</label>
-  {{ form.fecha }}
-  <button type="submit">Cargar menú</button>
-</form>
+  <form method="get" id="filtro-form">
+    <p>
+      <label for="{{ form.fecha.id_for_label }}">Fecha:</label>
+      {{ form.fecha }}
+    </p>
+    <p>
+      <label for="{{ form.carrera.id_for_label }}">Carrera:</label>
+      {{ form.carrera }}
+    </p>
+    <p>
+      <label for="{{ form.seccion.id_for_label }}">Sección:</label>
+      {{ form.seccion }}
+    </p>
+    <button class="btn-primary" type="submit">Buscar</button>
+  </form>
 
-{% if menu %}
-  <article class="menu-resumen">
-    <h3>{{ menu.nombre }}</h3>
-    {% if menu.descripcion %}
-      <p>{{ menu.descripcion }}</p>
-    {% endif %}
-    <p><small>Fecha del menú: {{ menu.fecha_creacion|date:"d-m-Y" }}</small></p>
-  </article>
+  <hr>
 
-  <section class="totales">
-    <h3>Totales por nutriente del menú</h3>
-    {% if nutrientes_totales %}
-      <table class="tabla">
-        <thead>
-          <tr>
-            <th>Nutriente</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for n in nutrientes_totales %}
-            <tr>
-              <td>
-                {{ n.nombre }}
-                {% if n.unidad %}<span class="unidad">({{ n.unidad }})</span>{% endif %}
-              </td>
-              <td class="texto-derecha-espaciado">{{ n.total|stringformat:".2f" }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+  {% if estudiantes is not None %}
+    {% if estudiantes %}
+      <h2>Estudiantes con servicio</h2>
+      <ul>
+        {% for e in estudiantes %}
+          <li>{{ e.apellido }}, {{ e.nombre }} — {{ e.seccion.nombre }}</li>
+        {% endfor %}
+      </ul>
     {% else %}
-      <p class="muted">No hay nutrientes para sumar en este menú.</p>
+      <p>No se encontraron estudiantes para esa fecha y sección.</p>
     {% endif %}
-  </section>
+  {% endif %}
 
-{% elif form.is_bound %}
-  <p class="alert">No se encontró un menú para la fecha seleccionada.</p>
-{% else %}
-  <p>Elige una fecha y presiona <strong>Cargar menú</strong>.</p>
-{% endif %}
+  <script>
+    // Cuando cambia la carrera, reenviar el formulario para repoblar "sección"
+    const carreraSelect = document.getElementById("id_carrera");
+    if (carreraSelect) {
+      carreraSelect.addEventListener("change", function () {
+        // Limpia valor de sección antes de enviar, para que se regenere correctamente
+        const seccionSelect = document.getElementById("id_seccion");
+        if (seccionSelect) seccionSelect.selectedIndex = -1;
+        document.getElementById("filtro-form").submit();
+      });
+    }
+  </script>
+
+
+    
+    
 {% endblock %}

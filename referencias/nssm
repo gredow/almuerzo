@@ -1,0 +1,2 @@
+nssm install AppAlmuerzo
+nssm start AppAlmuerzo

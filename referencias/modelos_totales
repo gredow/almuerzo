@@ -1,0 +1,90 @@
+
+
+class Alimento(models.Model):
+    nombre = models.CharField(max_length=150, unique=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="alimento")
+
+class AlimentoPlato(models.Model):
+    plato = models.ForeignKey(
+        'Plato',                # o 'almuerzo.Plato' si prefieres calificar con la app
+        on_delete=models.CASCADE,
+        related_name='alimentos_plato'
+    )
+    alimento = models.ForeignKey(
+        'Alimento',          # o 'almuerzo.Alimento'
+        on_delete=models.PROTECT,
+        related_name='alimento_platos'
+    )
+    gramos = models.FloatField(help_text="Cantidad usada en la receta (gramos)")
+
+class Carrera(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+
+
+class Estudiante(models.Model):
+    SEXO_OPCIONES = [
+        ("M", "Masculino"),
+        ("F", "Femenino"),
+    ]
+
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    lugar_de_residencia = models.CharField(max_length=50, default="AZUA")
+    numero_orden = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(50)])
+    sexo = models.CharField(max_length=1, choices=SEXO_OPCIONES,default="M")
+    fecha_nacimiento = models.DateField(default="01-01-2010")
+    seccion = models.ForeignKey(Seccion, on_delete=models.CASCADE, related_name="secciones")
+
+class Grado(models.Model):
+    nombre = models.CharField(max_length=10, unique=True)
+
+class Menu(models.Model):
+    nombre = models.CharField(max_length=150)
+    descripcion = models.TextField(blank=True)
+    fecha_creacion = models.DateField(default=timezone.now, unique= True)
+
+class MenuPlato(models.Model):
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    plato = models.ForeignKey(Plato, on_delete=models.CASCADE)
+
+class Nutriente(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    unidad = models.ForeignKey(Unidad, on_delete=models.CASCADE)
+
+class NutrienteAlimento(models.Model):
+    """
+    Valor por 100 g del alimento.
+    """
+    alimento = models.ForeignKey(Alimento, on_delete=models.CASCADE)
+    nutriente = models.ForeignKey(Nutriente, on_delete=models.CASCADE)
+    valor_por_100g = models.FloatField()  # ejemplo: 13.5 (g de proteína por 100 g)
+
+
+class Plato(models.Model):
+    nombre = models.CharField(max_length=150, unique=True)
+    descripcion = models.TextField(blank=True)
+    alimentos = models.ManyToManyField(Alimento, through="AlimentoPlato", related_name="platos")
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+
+class Seccion(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    grado = models.ForeignKey(Grado, on_delete=models.CASCADE, related_name="grados")
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, related_name="carreras")
+
+
+class Servicio(models.Model):
+    """
+        Registro de los servicios tomados por cada estudiante en el día.
+    """
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE, related_name="servicios")
+    fecha_servido = models.DateField(auto_now_add=True)
+
+
+class Unidad(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    abreviatura = models.CharField(max_length=4, unique=True)
+    equivalencia_gramos = models.FloatField(help_text="Cantidad a la que equivale en gramos la unidad")

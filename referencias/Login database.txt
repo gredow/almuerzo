@@ -1,0 +1,39 @@
+create login ipa
+with password = 'ipa/3258!',
+check_policy = off;
+
+
+
+create login ipa
+with password = 'ipa/3258!',
+check_policy = off;
+
+create database almuerzodb;
+USE almuerzodb;
+GO
+CREATE USER [ipa] FOR LOGIN [ipa];  -- crea el usuario en la base mapeado al login
+ALTER ROLE [db_datareader] ADD MEMBER [ipa];
+ALTER ROLE [db_datawriter] ADD MEMBER [ipa];
+
+
+
+
+SELECT name, type_desc
+FROM sys.server_principals 
+WHERE name IN ('ipa', 'localhost\ipa', 'ipa@tuempresa.com');
+
+
+USE almuerzodb;
+GO
+
+SELECT name, type_desc 
+FROM sys.database_principals 
+WHERE name IN ('ipa', 'localhost\ipa', 'ipa@tuempresa.com');
+
+
+SELECT name, type_desc 
+FROM sys.database_principals 
+WHERE name IN ('ipa', 'localhost\ipa', 'ipa@tuempresa.com');
+
+
+

@@ -2,10 +2,90 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control de alimentación</title>
+
+  <!-- Bootstrap CSS primero; tu styles.css después para poder sobreescribir estilos -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <!-- Navbar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="/">Control de alimentación</a>
+
+        <!-- Botón hamburguesa -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenido colapsable -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu/porfecha/">Ver Menús</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/filtro-servicio/">Filtro Servicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/alimentos/porcentaje/">Gráficos</a>
+            </li>
+            {% if request.user.is_authenticated and request.user.is_staff %}
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/almuerzo/menu/" target="_blank">Creación Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/almuerzo/servicio/" target="_blank">Ver Servicios</a>
+              </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/" target="_blank">Admin</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1">
+    <section class="container py-4">
+      {% block content %}
+        <p>Usa el menú para navegar.</p>
+      {% endblock %}
+    </section>
+  </main>
+
+  <footer class="bg-light border-top mt-auto">
+    <div class="container py-3 text-center">
+      <small>&copy; {% now "Y" %} Control de alimentación</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (bundle con Popper) al final del body -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+{% comment %} {% load static %}
+<!doctype html>
+<html lang="es">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Control de alimentación</title>
 <link rel="stylesheet" href="/static/css/styles.css">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<script src="/static/js/bootstrap.bundle.min.js"></script>
 <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
 </head>
 <body>
@@ -13,15 +93,11 @@
 <h1>Control de alimentación</h1>
 <nav>
 <a href="/">Inicio</a>
-<a href="/alimentos/">Alimentos</a>
-<a href="/categorias/">Categorias</a>
-<a href="/servicios/nuevo/">Nuevo Servicio</a>
-<a href="/admin/almuerzo/menu/">Creación Menu</a>
 <a href="/menu/porfecha/">Ver Menus</a>
-{#<a href="/alimentos/nuevo/">Nuevo alimento</a>#}
-{#<a href="/platos/nuevo/">Nuevo plato</a>#}
-{#<a href="/servicios/nuevo/">Registrar servicio</a>#}
-{#<a href="/estadisticas/">Estadísticas</a>#}
+<a href="/filtro-servicio/ ">Filtro Servicio</a>
+<a href="/alimentos/porcentaje/">Gráficos</a>
+<a href="/admin/almuerzo/menu/ " target="_blank">Creación Menu</a>
+<a href="/admin/almuerzo/servicio/" target="_blank">Ver Servicios</a>
 <a href="/admin/" target="_blank">Admin</a>
 </nav>
 </header>
@@ -36,4 +112,4 @@
 <small>&copy; {% now "Y" %} Control de alimentación</small>
 </footer>
 </body>
-</html>
+</html> {% endcomment %}
