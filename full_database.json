@@ -7,7 +7,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "7",
-    "object_repr": "Víberes",
+    "object_repr": "VÃ­beres",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -20,7 +20,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "4",
-    "object_repr": "Plátano Verde",
+    "object_repr": "PlÃ¡tano Verde",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
   }
@@ -59,7 +59,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "2",
-    "object_repr": "Proteína Principal",
+    "object_repr": "ProteÃ­na Principal",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
   }
@@ -163,7 +163,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "4",
-    "object_repr": "Ensalada de repollo y maíz",
+    "object_repr": "Ensalada de repollo y maÃ­z",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Ensalada de repollo y ma\\u00edz - Repollo (40.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Ensalada de repollo y ma\\u00edz - Maiz (20.0 g)\"}}]"
   }
@@ -189,7 +189,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "6",
-    "object_repr": "Albóndiga de sardina",
+    "object_repr": "AlbÃ³ndiga de sardina",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Alb\\u00f3ndiga de sardina - Sardina (30.0 g)\"}}]"
   }
@@ -254,7 +254,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "10",
-    "object_repr": "Guíneo maduro",
+    "object_repr": "GuÃ­neo maduro",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Gu\\u00edneo maduro - Banana madura (70.0 g)\"}}]"
   }
@@ -345,7 +345,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "27",
-    "object_repr": "Plátano Maduro",
+    "object_repr": "PlÃ¡tano Maduro",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -384,7 +384,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "14",
-    "object_repr": "Pastelón de plátano",
+    "object_repr": "PastelÃ³n de plÃ¡tano",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano - Pl\\u00e1tano Maduro (100.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano - Queso (30.0 g)\"}}]"
   }
@@ -397,7 +397,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "29",
-    "object_repr": "Ají",
+    "object_repr": "AjÃ­",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -436,7 +436,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "7",
-    "object_repr": "Pastelón de plátano con pollo (2025-08-28)",
+    "object_repr": "PastelÃ³n de plÃ¡tano con pollo (2025-08-28)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-08-28) Pastel\\u00f3n de pl\\u00e1tano\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-08-28) Fajitas de pollo\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-08-28) Ensalada de pepino\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-08-28) 1/2 Fruta picada\"}}]"
   }
@@ -540,7 +540,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "21",
-    "object_repr": "Albóndiga de cerdo",
+    "object_repr": "AlbÃ³ndiga de cerdo",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Alb\\u00f3ndiga de cerdo - Carne de Cerdo (80.0 g)\"}}]"
   }
@@ -553,7 +553,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "10",
-    "object_repr": "Pastas con albóndigas de cerdo (2025-09-23)",
+    "object_repr": "Pastas con albÃ³ndigas de cerdo (2025-09-23)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastas con alb\\u00f3ndigas de cerdo (2025-09-23) Pastas alimenticias\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastas con alb\\u00f3ndigas de cerdo (2025-09-23) Alb\\u00f3ndiga de cerdo\"}}]"
   }
@@ -631,7 +631,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "24",
-    "object_repr": "Arroz con maíz y zanahoria",
+    "object_repr": "Arroz con maÃ­z y zanahoria",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Arroz con ma\\u00edz y zanahoria - Arroz (90.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Arroz con ma\\u00edz y zanahoria - Maiz (20.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Arroz con ma\\u00edz y zanahoria - Zanahoria (15.0 g)\"}}]"
   }
@@ -683,7 +683,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "15",
-    "object_repr": "Puré de yuca con pollo (2025-09-17)",
+    "object_repr": "PurÃ© de yuca con pollo (2025-09-17)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de yuca con pollo (2025-09-17) Pure de yuca\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de yuca con pollo (2025-09-17) Muslos de pollo\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de yuca con pollo (2025-09-17) Ensalada de pepino\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de yuca con pollo (2025-09-17) Gu\\u00edneo maduro\"}}]"
   }
@@ -852,7 +852,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "29",
-    "object_repr": "Mangú de platano verde",
+    "object_repr": "MangÃº de platano verde",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Mang\\u00fa de platano verde - Pl\\u00e1tano Verde (115.0 g)\"}}]"
   }
@@ -878,7 +878,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "20",
-    "object_repr": "Mangú de platano con masa de res (2025-09-10)",
+    "object_repr": "MangÃº de platano con masa de res (2025-09-10)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Mang\\u00fa de platano con masa de res (2025-09-10) Mang\\u00fa de platano verde\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Mang\\u00fa de platano con masa de res (2025-09-10) Masa de res con cebolla y pimentones\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Mang\\u00fa de platano con masa de res (2025-09-10) Ensalada de tomate\"}}]"
   }
@@ -982,7 +982,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "10",
-    "object_repr": "Pastas con albóndigas de cerdo (2025-09-23)",
+    "object_repr": "Pastas con albÃ³ndigas de cerdo (2025-09-23)",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Descripcion\"]}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastas con alb\\u00f3ndigas de cerdo (2025-09-23) 1/2 Fruta picada\"}}]"
   }
@@ -1034,7 +1034,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "15",
-    "object_repr": "Puré de yuca con pollo (2025-09-17)",
+    "object_repr": "PurÃ© de yuca con pollo (2025-09-17)",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Descripcion\"]}}]"
   }
@@ -1086,7 +1086,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "7",
-    "object_repr": "Pastelón de plátano con pollo (2025-08-28)",
+    "object_repr": "PastelÃ³n de plÃ¡tano con pollo (2025-08-28)",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Descripcion\"]}}]"
   }
@@ -1138,7 +1138,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "32",
-    "object_repr": "Huevo revuelto con ajíes, tomate y cebolla",
+    "object_repr": "Huevo revuelto con ajÃ­es, tomate y cebolla",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Huevo revuelto con aj\\u00edes, tomate y cebolla - Huevos (60.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Huevo revuelto con aj\\u00edes, tomate y cebolla - Aj\\u00ed (20.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Huevo revuelto con aj\\u00edes, tomate y cebolla - Tomate (25.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Huevo revuelto con aj\\u00edes, tomate y cebolla - Cebolla (15.0 g)\"}}]"
   }
@@ -1164,7 +1164,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "33",
-    "object_repr": "Puré de papa",
+    "object_repr": "PurÃ© de papa",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Pur\\u00e9 de papa - Papa (90.0 g)\"}}]"
   }
@@ -1177,7 +1177,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "34",
-    "object_repr": "Ensalada de tomate y maíz",
+    "object_repr": "Ensalada de tomate y maÃ­z",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Ensalada de tomate y ma\\u00edz - Tomate (35.0 g)\"}}, {\"added\": {\"name\": \"alimento plato\", \"object\": \"Ensalada de tomate y ma\\u00edz - Maiz (15.0 g)\"}}]"
   }
@@ -1190,7 +1190,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "24",
-    "object_repr": "Puré de papa con muslos de pollo (2025-09-02)",
+    "object_repr": "PurÃ© de papa con muslos de pollo (2025-09-02)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de papa con muslos de pollo (2025-09-02) Pur\\u00e9 de papa\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de papa con muslos de pollo (2025-09-02) Muslos de pollo\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de papa con muslos de pollo (2025-09-02) Ensalada de tomate y ma\\u00edz\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pur\\u00e9 de papa con muslos de pollo (2025-09-02) 1/2 Fruta picada\"}}]"
   }
@@ -1411,7 +1411,7 @@
     "user": 1,
     "content_type": 12,
     "object_id": "31",
-    "object_repr": "Pastelón de plátano con pollo (2025-10-02)",
+    "object_repr": "PastelÃ³n de plÃ¡tano con pollo (2025-10-02)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-10-02) Pastel\\u00f3n de pl\\u00e1tano\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-10-02) Fajitas de pollo\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-10-02) Ensalada de pepino\"}}, {\"added\": {\"name\": \"menu plato\", \"object\": \"Pastel\\u00f3n de pl\\u00e1tano con pollo (2025-10-02) 1/2 Taza de Fruta picada\"}}]"
   }
@@ -1515,7 +1515,7 @@
     "user": 1,
     "content_type": 21,
     "object_id": "9957",
-    "object_repr": "ROSELYN ELIZABETH CRUZ PEÑA (30-09-2025)",
+    "object_repr": "ROSELYN ELIZABETH CRUZ PEÃ‘A (30-09-2025)",
     "action_flag": 3,
     "change_message": ""
   }
@@ -2477,7 +2477,7 @@
     "user": 1,
     "content_type": 21,
     "object_id": "10211",
-    "object_repr": "ROSELYN ELIZABETH CRUZ PEÑA (02-10-2025)",
+    "object_repr": "ROSELYN ELIZABETH CRUZ PEÃ‘A (02-10-2025)",
     "action_flag": 3,
     "change_message": ""
   }
@@ -2555,7 +2555,7 @@
     "user": 1,
     "content_type": 21,
     "object_id": "10219",
-    "object_repr": "ROSELYN ELIZABETH CRUZ PEÑA (02-10-2025)",
+    "object_repr": "ROSELYN ELIZABETH CRUZ PEÃ‘A (02-10-2025)",
     "action_flag": 3,
     "change_message": ""
   }
@@ -3581,7 +3581,7 @@
   "model": "almuerzo.categoria",
   "pk": 2,
   "fields": {
-    "nombre": "Proteína Principal"
+    "nombre": "ProteÃ­na Principal"
   }
 },
 {
@@ -3609,7 +3609,7 @@
   "model": "almuerzo.categoria",
   "pk": 7,
   "fields": {
-    "nombre": "Víberes"
+    "nombre": "VÃ­beres"
   }
 },
 {
@@ -3647,7 +3647,7 @@
   "model": "almuerzo.alimento",
   "pk": 4,
   "fields": {
-    "nombre": "Plátano Verde",
+    "nombre": "PlÃ¡tano Verde",
     "categoria": 7
   }
 },
@@ -3767,7 +3767,7 @@
   "model": "almuerzo.alimento",
   "pk": 19,
   "fields": {
-    "nombre": "Melón",
+    "nombre": "MelÃ³n",
     "categoria": 5
   }
 },
@@ -3783,7 +3783,7 @@
   "model": "almuerzo.alimento",
   "pk": 21,
   "fields": {
-    "nombre": "Sandía",
+    "nombre": "SandÃ­a",
     "categoria": 5
   }
 },
@@ -3831,7 +3831,7 @@
   "model": "almuerzo.alimento",
   "pk": 27,
   "fields": {
-    "nombre": "Plátano Maduro",
+    "nombre": "PlÃ¡tano Maduro",
     "categoria": 7
   }
 },
@@ -3847,7 +3847,7 @@
   "model": "almuerzo.alimento",
   "pk": 29,
   "fields": {
-    "nombre": "Ají",
+    "nombre": "AjÃ­",
     "categoria": 4
   }
 },
@@ -4581,7 +4581,7 @@
   "model": "almuerzo.carrera",
   "pk": 1,
   "fields": {
-    "nombre": "Desarrollo y Administración de Aplicaciones Informáticas"
+    "nombre": "Desarrollo y AdministraciÃ³n de Aplicaciones InformÃ¡ticas"
   }
 },
 {
@@ -4602,28 +4602,28 @@
   "model": "almuerzo.carrera",
   "pk": 4,
   "fields": {
-    "nombre": "Equipos Electrónicos"
+    "nombre": "Equipos ElectrÃ³nicos"
   }
 },
 {
   "model": "almuerzo.carrera",
   "pk": 5,
   "fields": {
-    "nombre": "Instalaciones Eléctricas"
+    "nombre": "Instalaciones ElÃ©ctricas"
   }
 },
 {
   "model": "almuerzo.carrera",
   "pk": 6,
   "fields": {
-    "nombre": "Electromecánica de Vehículos"
+    "nombre": "ElectromecÃ¡nica de VehÃ­culos"
   }
 },
 {
   "model": "almuerzo.carrera",
   "pk": 7,
   "fields": {
-    "nombre": "Servicios Gastronómicos"
+    "nombre": "Servicios GastronÃ³micos"
   }
 },
 {
@@ -4651,7 +4651,7 @@
   "model": "almuerzo.seccion",
   "pk": 1,
   "fields": {
-    "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Cuarto",
+    "nombre": "Desarrollo y AdministraciÃ³n de Aplicaciones InformÃ¡ticas Cuarto",
     "grado": 4,
     "carrera": 1
   }
@@ -4660,7 +4660,7 @@
   "model": "almuerzo.seccion",
   "pk": 2,
   "fields": {
-    "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Quinto",
+    "nombre": "Desarrollo y AdministraciÃ³n de Aplicaciones InformÃ¡ticas Quinto",
     "grado": 5,
     "carrera": 1
   }
@@ -4669,7 +4669,7 @@
   "model": "almuerzo.seccion",
   "pk": 3,
   "fields": {
-    "nombre": "Desarrollo y Administración de Aplicaciones Informáticas Sexto",
+    "nombre": "Desarrollo y AdministraciÃ³n de Aplicaciones InformÃ¡ticas Sexto",
     "grado": 6,
     "carrera": 1
   }
@@ -4732,7 +4732,7 @@
   "model": "almuerzo.seccion",
   "pk": 10,
   "fields": {
-    "nombre": "Equipos Electrónicos Cuarto",
+    "nombre": "Equipos ElectrÃ³nicos Cuarto",
     "grado": 4,
     "carrera": 4
   }
@@ -4741,7 +4741,7 @@
   "model": "almuerzo.seccion",
   "pk": 11,
   "fields": {
-    "nombre": "Equipos Electrónicos Quinto",
+    "nombre": "Equipos ElectrÃ³nicos Quinto",
     "grado": 5,
     "carrera": 4
   }
@@ -4750,7 +4750,7 @@
   "model": "almuerzo.seccion",
   "pk": 12,
   "fields": {
-    "nombre": "Equipos Electrónicos Sexto",
+    "nombre": "Equipos ElectrÃ³nicos Sexto",
     "grado": 6,
     "carrera": 4
   }
@@ -4759,7 +4759,7 @@
   "model": "almuerzo.seccion",
   "pk": 13,
   "fields": {
-    "nombre": "Instalaciones Eléctricas Cuarto",
+    "nombre": "Instalaciones ElÃ©ctricas Cuarto",
     "grado": 4,
     "carrera": 5
   }
@@ -4768,7 +4768,7 @@
   "model": "almuerzo.seccion",
   "pk": 14,
   "fields": {
-    "nombre": "Instalaciones Eléctricas Quinto",
+    "nombre": "Instalaciones ElÃ©ctricas Quinto",
     "grado": 5,
     "carrera": 5
   }
@@ -4777,7 +4777,7 @@
   "model": "almuerzo.seccion",
   "pk": 15,
   "fields": {
-    "nombre": "Instalaciones Eléctricas Sexto",
+    "nombre": "Instalaciones ElÃ©ctricas Sexto",
     "grado": 6,
     "carrera": 5
   }
@@ -4786,7 +4786,7 @@
   "model": "almuerzo.seccion",
   "pk": 16,
   "fields": {
-    "nombre": "Electromecánica de Vehículos Cuarto",
+    "nombre": "ElectromecÃ¡nica de VehÃ­culos Cuarto",
     "grado": 4,
     "carrera": 6
   }
@@ -4795,7 +4795,7 @@
   "model": "almuerzo.seccion",
   "pk": 17,
   "fields": {
-    "nombre": "Electromecánica de Vehículos Quinto",
+    "nombre": "ElectromecÃ¡nica de VehÃ­culos Quinto",
     "grado": 5,
     "carrera": 6
   }
@@ -4804,7 +4804,7 @@
   "model": "almuerzo.seccion",
   "pk": 18,
   "fields": {
-    "nombre": "Electromecánica de Vehículos Sexto",
+    "nombre": "ElectromecÃ¡nica de VehÃ­culos Sexto",
     "grado": 6,
     "carrera": 6
   }
@@ -4813,7 +4813,7 @@
   "model": "almuerzo.seccion",
   "pk": 19,
   "fields": {
-    "nombre": "Servicios Gastronómicos Cuarto",
+    "nombre": "Servicios GastronÃ³micos Cuarto",
     "grado": 4,
     "carrera": 7
   }
@@ -4822,7 +4822,7 @@
   "model": "almuerzo.seccion",
   "pk": 20,
   "fields": {
-    "nombre": "Servicios Gastronómicos Quinto",
+    "nombre": "Servicios GastronÃ³micos Quinto",
     "grado": 5,
     "carrera": 7
   }
@@ -4831,7 +4831,7 @@
   "model": "almuerzo.seccion",
   "pk": 21,
   "fields": {
-    "nombre": "Servicios Gastronómicos Sexto",
+    "nombre": "Servicios GastronÃ³micos Sexto",
     "grado": 6,
     "carrera": 7
   }
@@ -4893,7 +4893,7 @@
   "pk": 5450522,
   "fields": {
     "nombre": "KENDRY MANUEL",
-    "apellido": "NUÑEZ PINEDA",
+    "apellido": "NUÃ‘EZ PINEDA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 12,
     "sexo": "M",
@@ -5231,7 +5231,7 @@
   "pk": 5928321,
   "fields": {
     "nombre": "FRAYMEL NATHANAEL",
-    "apellido": "BELTRE NUÑEZ",
+    "apellido": "BELTRE NUÃ‘EZ",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 3,
     "sexo": "M",
@@ -5348,7 +5348,7 @@
   "pk": 6035763,
   "fields": {
     "nombre": "JUNIOL EMMANUEL",
-    "apellido": "NUÑEZ SUAZO",
+    "apellido": "NUÃ‘EZ SUAZO",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 14,
     "sexo": "M",
@@ -5998,7 +5998,7 @@
   "pk": 6395407,
   "fields": {
     "nombre": "CRISTIAN STARLIN",
-    "apellido": "PEÑA FERRERA",
+    "apellido": "PEÃ‘A FERRERA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 14,
     "sexo": "M",
@@ -6921,7 +6921,7 @@
   "pk": 6551640,
   "fields": {
     "nombre": "YADIEL SKEYLIN",
-    "apellido": "NUÑEZ PINEDA",
+    "apellido": "NUÃ‘EZ PINEDA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 11,
     "sexo": "M",
@@ -6960,7 +6960,7 @@
   "pk": 6605679,
   "fields": {
     "nombre": "ADIELA MARCEL",
-    "apellido": "SENCION PEÑA",
+    "apellido": "SENCION PEÃ‘A",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 22,
     "sexo": "F",
@@ -7129,7 +7129,7 @@
   "pk": 6619980,
   "fields": {
     "nombre": "ADRIANA MASSIEL",
-    "apellido": "FIPÒ TEJEDA",
+    "apellido": "FIPÃ’ TEJEDA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 6,
     "sexo": "F",
@@ -7545,7 +7545,7 @@
   "pk": 6776066,
   "fields": {
     "nombre": "RUTH ESTER",
-    "apellido": "NUÑEZ SUAZO",
+    "apellido": "NUÃ‘EZ SUAZO",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 15,
     "sexo": "F",
@@ -7623,7 +7623,7 @@
   "pk": 6792244,
   "fields": {
     "nombre": "MELIBEL",
-    "apellido": "DIFO MAÑON",
+    "apellido": "DIFO MAÃ‘ON",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 7,
     "sexo": "F",
@@ -8078,7 +8078,7 @@
   "pk": 6908141,
   "fields": {
     "nombre": "ROSELYN ELIZABETH",
-    "apellido": "CRUZ PEÑA",
+    "apellido": "CRUZ PEÃ‘A",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 3,
     "sexo": "F",
@@ -8169,7 +8169,7 @@
   "pk": 6949031,
   "fields": {
     "nombre": "JULIO CESAR",
-    "apellido": "PEÑA LARA",
+    "apellido": "PEÃ‘A LARA",
     "lugar_de_residencia": "D-1 GANADERO",
     "numero_orden": 16,
     "sexo": "M",
@@ -8429,7 +8429,7 @@
   "pk": 7054634,
   "fields": {
     "nombre": "PAOLA MASSIEL",
-    "apellido": "DOÑE ENCARNACION",
+    "apellido": "DOÃ‘E ENCARNACION",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 10,
     "sexo": "F",
@@ -8481,7 +8481,7 @@
   "pk": 7064114,
   "fields": {
     "nombre": "HACIANNY",
-    "apellido": "NUÑEZ DIAZ",
+    "apellido": "NUÃ‘EZ DIAZ",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 10,
     "sexo": "F",
@@ -8702,7 +8702,7 @@
   "pk": 7136576,
   "fields": {
     "nombre": "RAFAEL CONCEPCION",
-    "apellido": "PINALES MAÑON",
+    "apellido": "PINALES MAÃ‘ON",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 18,
     "sexo": "M",
@@ -8819,7 +8819,7 @@
   "pk": 7143827,
   "fields": {
     "nombre": "YERGIN MANUEL",
-    "apellido": "PEÑA BATISTA",
+    "apellido": "PEÃ‘A BATISTA",
     "lugar_de_residencia": "PUEBLO VIEJO",
     "numero_orden": 16,
     "sexo": "M",
@@ -8884,7 +8884,7 @@
   "pk": 7153324,
   "fields": {
     "nombre": "ALAN GABRIEL",
-    "apellido": "MAÑON MAÑON",
+    "apellido": "MAÃ‘ON MAÃ‘ON",
     "lugar_de_residencia": "BARRO ARRIBA",
     "numero_orden": 11,
     "sexo": "M",
@@ -8962,7 +8962,7 @@
   "pk": 11763693,
   "fields": {
     "nombre": "OMAYLIN ALEXIS",
-    "apellido": "DE LEON PIÑEIRO",
+    "apellido": "DE LEON PIÃ‘EIRO",
     "lugar_de_residencia": "D-1 GANADERO",
     "numero_orden": 8,
     "sexo": "F",
@@ -9287,7 +9287,7 @@
   "pk": 11842676,
   "fields": {
     "nombre": "MOISES GABRIEL",
-    "apellido": "MUÑOZ PATRICIO",
+    "apellido": "MUÃ‘OZ PATRICIO",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 14,
     "sexo": "M",
@@ -9339,7 +9339,7 @@
   "pk": 11848017,
   "fields": {
     "nombre": "JUNIELIZ AELIN",
-    "apellido": "MUÑOZ CIPRIAN",
+    "apellido": "MUÃ‘OZ CIPRIAN",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 16,
     "sexo": "F",
@@ -9586,7 +9586,7 @@
   "pk": 11885719,
   "fields": {
     "nombre": "AIXA DESIREET",
-    "apellido": "PEÑA CUEVAS",
+    "apellido": "PEÃ‘A CUEVAS",
     "lugar_de_residencia": "LOS JOVILLOS",
     "numero_orden": 13,
     "sexo": "F",
@@ -9742,7 +9742,7 @@
   "pk": 11922423,
   "fields": {
     "nombre": "LOREANNY JEINALIZ",
-    "apellido": "DOÑEZ RAMIREZ",
+    "apellido": "DOÃ‘EZ RAMIREZ",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 11,
     "sexo": "F",
@@ -9976,7 +9976,7 @@
   "pk": 22040526,
   "fields": {
     "nombre": "ENYER",
-    "apellido": "MAÑON MONTILLA",
+    "apellido": "MAÃ‘ON MONTILLA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 15,
     "sexo": "M",
@@ -10015,7 +10015,7 @@
   "pk": 22055471,
   "fields": {
     "nombre": "AILIN EDILENNI",
-    "apellido": "CRUZ PEÑA",
+    "apellido": "CRUZ PEÃ‘A",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 6,
     "sexo": "F",
@@ -10197,7 +10197,7 @@
   "pk": 32393445,
   "fields": {
     "nombre": "ISAIAS MICHEL",
-    "apellido": "MUÑOZ",
+    "apellido": "MUÃ‘OZ",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 13,
     "sexo": "M",
@@ -10639,7 +10639,7 @@
   "pk": 33012883,
   "fields": {
     "nombre": "ESTHER",
-    "apellido": "PEÑAFIEL HEREDIA",
+    "apellido": "PEÃ‘AFIEL HEREDIA",
     "lugar_de_residencia": "AZUA",
     "numero_orden": 17,
     "sexo": "F",
@@ -10756,7 +10756,7 @@
   "pk": 33484418,
   "fields": {
     "nombre": "SOLIMAR VALENTINA",
-    "apellido": "GUZMAN PEÑA",
+    "apellido": "GUZMAN PEÃ‘A",
     "lugar_de_residencia": "BARRO ARRIBA",
     "numero_orden": 9,
     "sexo": "F",
@@ -10934,7 +10934,7 @@
   "pk": 5,
   "fields": {
     "nombre": "Arroz con lentejas y sardina",
-    "descripcion": "Arroz blanco / lentejas guisadas / albóndigas de sardinas en salda de tomate natural / ensalda de repollo sudado y maíz. (1/2 taza de fruta picada)",
+    "descripcion": "Arroz blanco / lentejas guisadas / albÃ³ndigas de sardinas en salda de tomate natural / ensalda de repollo sudado y maÃ­z. (1/2 taza de fruta picada)",
     "fecha_creacion": "2025-08-26"
   }
 },
@@ -10951,8 +10951,8 @@
   "model": "almuerzo.menu",
   "pk": 7,
   "fields": {
-    "nombre": "Pastelón de plátano con pollo",
-    "descripcion": "Pastelón de plátano maduro con queso / Fajitas de pollo con pimientos / Ensalada de pepino. (1/2 taza de fruta picada)",
+    "nombre": "PastelÃ³n de plÃ¡tano con pollo",
+    "descripcion": "PastelÃ³n de plÃ¡tano maduro con queso / Fajitas de pollo con pimientos / Ensalada de pepino. (1/2 taza de fruta picada)",
     "fecha_creacion": "2025-08-28"
   }
 },
@@ -10978,8 +10978,8 @@
   "model": "almuerzo.menu",
   "pk": 10,
   "fields": {
-    "nombre": "Pastas con albóndigas de cerdo",
-    "descripcion": "Pastas alimenticias con albóndigas de cerdo en salsa de tomate natural / Ensalada de zanahoria y maíz. (1/2 taza de fruta picada)",
+    "nombre": "Pastas con albÃ³ndigas de cerdo",
+    "descripcion": "Pastas alimenticias con albÃ³ndigas de cerdo en salsa de tomate natural / Ensalada de zanahoria y maÃ­z. (1/2 taza de fruta picada)",
     "fecha_creacion": "2025-09-23"
   }
 },
@@ -11006,7 +11006,7 @@
   "pk": 13,
   "fields": {
     "nombre": "Arroz con maiz y fajitas de pollo",
-    "descripcion": "Arroz con maíz y zanahoria / Fajitas de pollo con pimientos / Ensalada de tomate y pepino. (1 guineo maduro)",
+    "descripcion": "Arroz con maÃ­z y zanahoria / Fajitas de pollo con pimientos / Ensalada de tomate y pepino. (1 guineo maduro)",
     "fecha_creacion": "2025-09-15"
   }
 },
@@ -11023,8 +11023,8 @@
   "model": "almuerzo.menu",
   "pk": 15,
   "fields": {
-    "nombre": "Puré de yuca con pollo",
-    "descripcion": "Puré de yuca /mulos de pollo / ensalada de pepino. (1 guineo maduro)",
+    "nombre": "PurÃ© de yuca con pollo",
+    "descripcion": "PurÃ© de yuca /mulos de pollo / ensalada de pepino. (1 guineo maduro)",
     "fecha_creacion": "2025-09-17"
   }
 },
@@ -11068,8 +11068,8 @@
   "model": "almuerzo.menu",
   "pk": 20,
   "fields": {
-    "nombre": "Mangú de platano con masa de res",
-    "descripcion": "Mangú de plátano verde / Masa de res con cebolla y pimentones / Ensalada de tomate. (1 guineo maduro)",
+    "nombre": "MangÃº de platano con masa de res",
+    "descripcion": "MangÃº de plÃ¡tano verde / Masa de res con cebolla y pimentones / Ensalada de tomate. (1 guineo maduro)",
     "fecha_creacion": "2025-09-10"
   }
 },
@@ -11096,7 +11096,7 @@
   "pk": 23,
   "fields": {
     "nombre": "Arroz con habichuelas y huevo revuelto",
-    "descripcion": "Arroz blanco / habichuelas rojas guisadas / huevos revueltos con tomates, ajíes y cebolla picaditas / ensalada de tomate. (1 guineo maduro)",
+    "descripcion": "Arroz blanco / habichuelas rojas guisadas / huevos revueltos con tomates, ajÃ­es y cebolla picaditas / ensalada de tomate. (1 guineo maduro)",
     "fecha_creacion": "2025-09-01"
   }
 },
@@ -11104,8 +11104,8 @@
   "model": "almuerzo.menu",
   "pk": 24,
   "fields": {
-    "nombre": "Puré de papa con muslos de pollo",
-    "descripcion": "Puré de papa / muzlo de pollo guisado / ensalada de tomate y maíz. (1/2 taza de fruta picada)",
+    "nombre": "PurÃ© de papa con muslos de pollo",
+    "descripcion": "PurÃ© de papa / muzlo de pollo guisado / ensalada de tomate y maÃ­z. (1/2 taza de fruta picada)",
     "fecha_creacion": "2025-09-02"
   }
 },
@@ -11150,7 +11150,7 @@
   "pk": 29,
   "fields": {
     "nombre": "Arroz blanco con lentejas y sardina",
-    "descripcion": "Arroz blanco / Lentejas guisadas / Albóndigas de sardina en salsa de tomate natural / Ensalada de repollo sudado y maíz. (1/2 taza de fruta picada).",
+    "descripcion": "Arroz blanco / Lentejas guisadas / AlbÃ³ndigas de sardina en salsa de tomate natural / Ensalada de repollo sudado y maÃ­z. (1/2 taza de fruta picada).",
     "fecha_creacion": "2025-09-30"
   }
 },
@@ -11167,8 +11167,8 @@
   "model": "almuerzo.menu",
   "pk": 31,
   "fields": {
-    "nombre": "Pastelón de plátano con pollo",
-    "descripcion": "Pastelón de plátano maduro con queso / Fajitas de pollo con pimientos / Ensalada de pepino. (1/2 taza de fruta picada)",
+    "nombre": "PastelÃ³n de plÃ¡tano con pollo",
+    "descripcion": "PastelÃ³n de plÃ¡tano maduro con queso / Fajitas de pollo con pimientos / Ensalada de pepino. (1/2 taza de fruta picada)",
     "fecha_creacion": "2025-10-02"
   }
 },
@@ -11221,8 +11221,8 @@
   "model": "almuerzo.plato",
   "pk": 4,
   "fields": {
-    "nombre": "Ensalada de repollo y maíz",
-    "descripcion": "Ensalada de repollo y maíz",
+    "nombre": "Ensalada de repollo y maÃ­z",
+    "descripcion": "Ensalada de repollo y maÃ­z",
     "fecha_creacion": "2025-09-26T03:53:55.417Z"
   }
 },
@@ -11239,8 +11239,8 @@
   "model": "almuerzo.plato",
   "pk": 6,
   "fields": {
-    "nombre": "Albóndiga de sardina",
-    "descripcion": "Albóndiga de sardina",
+    "nombre": "AlbÃ³ndiga de sardina",
+    "descripcion": "AlbÃ³ndiga de sardina",
     "fecha_creacion": "2025-09-26T03:55:42.379Z"
   }
 },
@@ -11275,8 +11275,8 @@
   "model": "almuerzo.plato",
   "pk": 10,
   "fields": {
-    "nombre": "Guíneo maduro",
-    "descripcion": "Guíneo maduro",
+    "nombre": "GuÃ­neo maduro",
+    "descripcion": "GuÃ­neo maduro",
     "fecha_creacion": "2025-09-26T04:01:16.762Z"
   }
 },
@@ -11285,7 +11285,7 @@
   "pk": 11,
   "fields": {
     "nombre": "1/2 Taza de Fruta picada",
-    "descripcion": "1/2 Taza de Sandía y melón picados",
+    "descripcion": "1/2 Taza de SandÃ­a y melÃ³n picados",
     "fecha_creacion": "2025-09-26T04:02:32.899Z"
   }
 },
@@ -11311,8 +11311,8 @@
   "model": "almuerzo.plato",
   "pk": 14,
   "fields": {
-    "nombre": "Pastelón de plátano",
-    "descripcion": "Pastelón de plátano",
+    "nombre": "PastelÃ³n de plÃ¡tano",
+    "descripcion": "PastelÃ³n de plÃ¡tano",
     "fecha_creacion": "2025-09-26T04:15:49.621Z"
   }
 },
@@ -11374,8 +11374,8 @@
   "model": "almuerzo.plato",
   "pk": 21,
   "fields": {
-    "nombre": "Albóndiga de cerdo",
-    "descripcion": "Albóndiga de cerdo",
+    "nombre": "AlbÃ³ndiga de cerdo",
+    "descripcion": "AlbÃ³ndiga de cerdo",
     "fecha_creacion": "2025-09-26T04:30:06.937Z"
   }
 },
@@ -11401,8 +11401,8 @@
   "model": "almuerzo.plato",
   "pk": 24,
   "fields": {
-    "nombre": "Arroz con maíz y zanahoria",
-    "descripcion": "Arroz con maíz y zanahoria",
+    "nombre": "Arroz con maÃ­z y zanahoria",
+    "descripcion": "Arroz con maÃ­z y zanahoria",
     "fecha_creacion": "2025-09-26T04:39:37.113Z"
   }
 },
@@ -11446,8 +11446,8 @@
   "model": "almuerzo.plato",
   "pk": 29,
   "fields": {
-    "nombre": "Mangú de platano verde",
-    "descripcion": "Mangú de platano verde",
+    "nombre": "MangÃº de platano verde",
+    "descripcion": "MangÃº de platano verde",
     "fecha_creacion": "2025-09-26T16:14:43.384Z"
   }
 },
@@ -11473,8 +11473,8 @@
   "model": "almuerzo.plato",
   "pk": 32,
   "fields": {
-    "nombre": "Huevo revuelto con ajíes, tomate y cebolla",
-    "descripcion": "Huevo revuelto con ajíes, tomate y cebolla",
+    "nombre": "Huevo revuelto con ajÃ­es, tomate y cebolla",
+    "descripcion": "Huevo revuelto con ajÃ­es, tomate y cebolla",
     "fecha_creacion": "2025-09-26T16:33:26.214Z"
   }
 },
@@ -11482,8 +11482,8 @@
   "model": "almuerzo.plato",
   "pk": 33,
   "fields": {
-    "nombre": "Puré de papa",
-    "descripcion": "Puré de papa",
+    "nombre": "PurÃ© de papa",
+    "descripcion": "PurÃ© de papa",
     "fecha_creacion": "2025-09-26T16:35:28.118Z"
   }
 },
@@ -11491,8 +11491,8 @@
   "model": "almuerzo.plato",
   "pk": 34,
   "fields": {
-    "nombre": "Ensalada de tomate y maíz",
-    "descripcion": "Ensalada de tomate y maíz",
+    "nombre": "Ensalada de tomate y maÃ­z",
+    "descripcion": "Ensalada de tomate y maÃ­z",
     "fecha_creacion": "2025-09-26T16:36:30.326Z"
   }
 },
@@ -12442,7 +12442,7 @@
   "model": "almuerzo.unidad",
   "pk": 1,
   "fields": {
-    "nombre": "Kilocaloría",
+    "nombre": "KilocalorÃ­a",
     "abreviatura": "kcal",
     "equivalencia_gramos": 0.0
   }
@@ -12470,7 +12470,7 @@
   "pk": 4,
   "fields": {
     "nombre": "Microgramo",
-    "abreviatura": "µg",
+    "abreviatura": "Âµg",
     "equivalencia_gramos": 1e-06
   }
 },
@@ -12487,7 +12487,7 @@
   "model": "almuerzo.nutriente",
   "pk": 1,
   "fields": {
-    "nombre": "Energía",
+    "nombre": "EnergÃ­a",
     "unidad": 1
   }
 },
@@ -12511,7 +12511,7 @@
   "model": "almuerzo.nutriente",
   "pk": 4,
   "fields": {
-    "nombre": "Azúcares simples",
+    "nombre": "AzÃºcares simples",
     "unidad": 2
   }
 },
@@ -12519,7 +12519,7 @@
   "model": "almuerzo.nutriente",
   "pk": 5,
   "fields": {
-    "nombre": "Fibra dietética",
+    "nombre": "Fibra dietÃ©tica",
     "unidad": 2
   }
 },
@@ -12543,7 +12543,7 @@
   "model": "almuerzo.nutriente",
   "pk": 8,
   "fields": {
-    "nombre": "Proteína",
+    "nombre": "ProteÃ­na",
     "unidad": 2
   }
 },
@@ -12583,7 +12583,7 @@
   "model": "almuerzo.nutriente",
   "pk": 13,
   "fields": {
-    "nombre": "Vitamina A (µg)",
+    "nombre": "Vitamina A (Âµg)",
     "unidad": 4
   }
 },

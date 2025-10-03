@@ -3,4 +3,8 @@ python manage.py migrate
 
 python manage.py create superuser
 
-python manage.py createsuperuser --no-input --username admin --email admin@example.com
+python manage.py createsuperuser
+
+
+python manage.py dumpdata --exclude auth.permissions --exclude contenttypes --indent 2 > clean_data.json
+python manage.py loaddata clean_data.json

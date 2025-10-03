@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum, Q
 from .models import (Alimento, AlimentoPlato, Categoria, Estudiante, Menu,
                      NutrienteAlimento, Plato, Servicio)
-from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio, FechaMenuForm, FiltroServicioForm
+from .forms import AlimentoForm, FormPlato, PlatoAlimentoFormSet, FormServicio, FechaMenuForm, FiltroServicioForm, \
+    FechaDashboardForm
 from django.utils import timezone
 from django.db import IntegrityError
 from .forms import NuevoServicioForm
@@ -405,3 +406,85 @@ def api_alimentos_porcentaje(request):
             "categoria": (categoria_obj.nombre if categoria_obj else "Todas"),
         }
     })
+
+
+def home_almuerzo(request):
+    """
+    Dashboard de inicio:
+    - Hero + imagen
+    - Selector de fecha (default: hoy)
+    - KPIs: estudiantes, servicios del día, alimentos, platos
+    - Menú del día (platos -> alimentos)
+    - Gráfico interactivo (alimentos por % promedio de estudiantes)
+    """
+    # fecha por defecto = hoy (zona servidor)
+    default_fecha = timezone.localdate()
+    form = FechaDashboardForm(request.GET or None, initial={"fecha": default_fecha})
+
+    if form.is_valid():
+        fecha = form.cleaned_data["fecha"]
+        categoria_id = form.cleaned_data.get("categoria_id")
+    else:
+        fecha = default_fecha
+        categoria_id = None
+
+    # KPIs
+    total_estudiantes = Estudiante.objects.count()
+    servicios_dia = Servicio.objects.filter(fecha_servido=fecha).values("estudiante").distinct().count()
+    total_alimentos = Alimento.objects.count()
+    total_platos = Plato.objects.count()
+
+    # Menú del día
+    menu = (
+        Menu.objects
+        .filter(fecha_creacion=fecha)
+        .prefetch_related(
+            Prefetch(
+                "menuplato_set",
+                queryset=MenuPlato.objects.select_related("plato").prefetch_related(
+                    Prefetch(
+                        "plato__alimentos_plato",
+                        queryset=AlimentoPlato.objects.select_related("alimento__categoria")
+                    )
+                ),
+            )
+        )
+        .first()
+    )
+
+    # Estructura amigable para template: platos → alimentos
+    platos_render = []
+    if menu:
+        for mp in menu.menuplato_set.all():
+            items = []
+            for ap in mp.plato.alimentos_plato.all():
+                items.append({
+                    "alimento": ap.alimento,
+                    "categoria": ap.alimento.categoria.nombre if ap.alimento.categoria_id else "",
+                    "gramos": ap.gramos,
+                })
+            platos_render.append({
+                "plato": mp.plato,
+                "items": items
+            })
+
+    # Categorías para el filtro del gráfico
+    categorias = Categoria.objects.order_by("nombre").all()
+
+    ctx = {
+        "form": form,
+        "fecha": fecha,
+        "menu": menu,
+        "platos": platos_render,
+        "kpis": {
+            "total_estudiantes": total_estudiantes,
+            "servicios_dia": servicios_dia,
+            "total_alimentos": total_alimentos,
+            "total_platos": total_platos,
+        },
+        "categorias": categorias,
+        "categoria_id": categoria_id or "",
+    }
+    return render(request, "almuerzo/home.html", ctx)
+
+

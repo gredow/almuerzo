@@ -114,3 +114,13 @@ class FiltroServicioForm(forms.Form):
             self.fields['seccion'].queryset = Seccion.objects.filter(
                 carrera=self.initial['carrera']
             ).order_by('nombre')
+
+class FechaDashboardForm(forms.Form):
+    fecha = forms.DateField(
+        label="Fecha",
+        widget=forms.DateInput(attrs={"type": "date", "class": "form-control w-auto"})
+    )
+    categoria_id = forms.IntegerField(
+        required=False,
+        widget=forms.NumberInput(attrs={"class": "form-control w-auto", "placeholder": "ID categoría"})
+    )

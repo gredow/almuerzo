@@ -5,25 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aae9ff81-1a44-46b0-95b8-4291d236e736" name="Changes" comment="Estructura básica completa">
-      <change afterPath="$PROJECT_DIR$/almuerzo/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almuerzo/static/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/view_creacion_plato.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/almuerzo/vistas/view_upload_excel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/referencias/nssm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/almuerzo/excel_result.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/almuerzo/filtro_servicio.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/almuerzo/upload_excel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/almuerzo/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/models/servicio.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/servicio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/almuerzo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/almuerzo/models/menuplato.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/models/menuplato.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/almuerzo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/almuerzo/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/almuerzo/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/almuerzo/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/almuerzo/menu_por_fecha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/almuerzo/menu_por_fecha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/full_database.json" beforeDir="false" afterPath="$PROJECT_DIR$/full_database.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/referencias/django basico.txt" beforeDir="false" afterPath="$PROJECT_DIR$/referencias/django basico.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/referencias/modelos_totales" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,34 +54,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.almuerzo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;Excel (xlsx)&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Gredow/programacion/almuerzo/templates/almuerzo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.almuerzo.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "database.data.extractors.current.export.id": "Excel (xlsx)",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Gredow/programacion/almuerzo/templates/almuerzo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;,
-      &quot;mysql&quot;,
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite",
+      "mysql",
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Gredow\programacion\almuerzo\templates\almuerzo" />
@@ -166,6 +156,7 @@
       <workItem from="1759234190681" duration="375000" />
       <workItem from="1759239629927" duration="8391000" />
       <workItem from="1759322340713" duration="79000" />
+      <workItem from="1759461734746" duration="3766000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit">
       <option name="closed" value="true" />
@@ -210,7 +201,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/almuerzo/forms.py</url>
-          <line>37</line>
+          <line>44</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

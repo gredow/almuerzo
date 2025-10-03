@@ -8,7 +8,8 @@ from .views import tabla_platos
 from .views_autocomplete import AlimentoAutocomplete
 
 urlpatterns = [
-    path("", views.inicio, name="home"),
+    # path("", views.inicio, name="home"),
+    path("", views.home_almuerzo, name="home_almuerzo"),
     path("alimentos/", views.lista_alimento, name="lista_alimento"),
     path("categorias/", views.lista_categoria, name="lista_categoria"),
     path("almuerzo/nuevo/", views.creacion_alimento, name="creacion_alimento"),

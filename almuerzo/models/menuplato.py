@@ -9,5 +9,6 @@ class MenuPlato(models.Model):
 
     class Meta:
         unique_together = ("menu", "plato")
+        ordering = ['id']
 
     def __str__(self): return f"{self.menu} {self.plato}"

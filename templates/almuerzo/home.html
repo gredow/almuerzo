@@ -1,0 +1,175 @@
+{# templates/almuerzo/home.html #}
+{% extends "almuerzo/base.html" %}
+
+{% block content %}
+<section class="hero" style="display:grid;grid-template-columns:1.6fr 1fr;gap:1.25rem;align-items:center;margin-bottom:1.5rem;">
+  <div>
+    <h1 style="margin:0;">Instituto Politécnico de Azua<br><small>Prof. Teresa Digna Féliz de Estrada</small></h1>
+    <p class="muted">Sistema de control de alimentación: menú diario, servicios y estadísticas de consumo.</p>
+
+    <form method="get" class="form-fecha" style="display:flex;gap:.75rem;align-items:flex-end;margin-top:.75rem;">
+      <div>
+        <label for="id_fecha">Fecha</label>
+        {{ form.fecha }}
+      </div>
+
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
+
+  <figure style="width:100%;aspect-ratio:4/3;background:#f3f3f3;border:1px dashed #bbb;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+    <span class="muted">[ Espacio para imagen del comedor ]</span>
+  </figure>
+</section>
+
+<section class="kpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.25rem;">
+  <div class="card">
+    <div class="card-body">
+      <div class="kpi-title">Estudiantes (Totales)</div>
+      <div class="kpi-value">{{ kpis.total_estudiantes }}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="kpi-title">Servicios (Del día) ({{ fecha|date:"d/m/Y" }})</div>
+      <div class="kpi-value">{{ kpis.servicios_dia }}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="kpi-title">Alimentos (Totales)</div>
+      <div class="kpi-value">{{ kpis.total_alimentos }}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="kpi-title">Platos (Totales)</div>
+      <div class="kpi-value">{{ kpis.total_platos }}</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:grid;grid-template-columns:1.2fr 1fr;gap:1rem;align-items:start;">
+  <article class="card">
+    <div class="card-header"><strong>Menú del día ({{ fecha|date:"d/m/Y" }})</strong></div>
+    <div class="card-body">
+      {% if menu %}
+        {% for bloque in platos %}
+          <div class="plato" style="margin-bottom:.75rem;">
+            <h4 style="margin:.2rem 0;">🍽️ {{ bloque.plato.nombre }}</h4>
+            {% if bloque.plato.descripcion %}
+              <p class="muted" style="margin:.2rem 0;">{{ bloque.plato.descripcion }}</p>
+            {% endif %}
+            <ul style="margin:.25rem 0 0 .75rem;">
+              {% for it in bloque.items %}
+                <li>
+                  {{ it.alimento.nombre }}
+                  {% if it.categoria %}<small class="muted">({{ it.categoria }})</small>{% endif %}
+                  – {{ it.gramos|stringformat:".0f" }} g
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted">No hay menú cargado para esta fecha.</p>
+      {% endif %}
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header"><strong>Consumo promedio por alimento</strong></div>
+    <div class="card-body">
+      <p class="muted" style="margin-top:0;">Porcentaje promedio de estudiantes que consumen cada alimento (según aparición en menús y servicios registrados).</p>
+
+      <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.5rem;">
+        <label for="filtro_categoria">Filtrar por categoría:</label>
+        <select id="filtro_categoria">
+          <option value="">Todas</option>
+          {% for c in categorias %}
+            <option value="{{ c.id }}" {% if categoria_id and categoria_id|stringformat:"s" == c.id|stringformat:"s" %}selected{% endif %}>{{ c.nombre }}</option>
+          {% endfor %}
+        </select>
+        <button id="btn_aplicar" type="button">Aplicar</button>
+      </div>
+
+      <div style="height:280px;">
+        <canvas id="chartAlimentos"></canvas>
+      </div>
+      <p id="meta" class="muted" style="margin-top:.5rem;"></p>
+    </div>
+  </article>
+</section>
+
+<!-- Estilos mínimos si tu base.html no trae framework -->
+<style>
+  .muted{color:#6b7280}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card-header{padding:.6rem .9rem;border-bottom:1px solid #eef2f7;background:#f8fafc;border-radius:10px 10px 0 0}
+  .card-body{padding:.8rem .9rem}
+  .kpi-title{font-size:.85rem;color:#6b7280}
+  .kpi-value{font-size:1.6rem;font-weight:700}
+  @media (max-width: 960px){
+    .hero{grid-template-columns:1fr}
+    .kpis{grid-template-columns:1fr 1fr}
+    .hero figure{order:-1}
+    section[style*="grid-template-columns:1.2fr 1fr"]{grid-template-columns:1fr}
+  }
+</style>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function(){
+  const ctx = document.getElementById('chartAlimentos').getContext('2d');
+  let chart;
+
+  function renderChart(labels, data){
+    if(chart) chart.destroy();
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: '% de estudiantes (promedio)',
+          data,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { beginAtZero: true, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Porcentaje' } },
+          x: { title: { display: true, text: 'Alimentos' } }
+        },
+        plugins: {
+          tooltip: { callbacks: { label: (ctx) => `${ctx.formattedValue}%` } },
+          legend: { display: false }
+        }
+      }
+    });
+  }
+
+  async function cargarDatos(){
+    const params = new URLSearchParams();
+    const fechaEl = document.getElementById('id_fecha');
+    if (fechaEl && fechaEl.value) params.set('fecha', fechaEl.value);
+    const catEl = document.getElementById('filtro_categoria');
+    if (catEl && catEl.value) params.set('categoria_id', catEl.value);
+
+    const url = params.toString() ? `/api/alimentos/porcentaje/?${params.toString()}` : `/api/alimentos/porcentaje/`;
+    const res = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+    const json = await res.json();
+
+    renderChart(json.labels, json.data);
+    const meta = document.getElementById('meta');
+    meta.textContent = `Base: ${json.meta.total_estudiantes} estudiante(s). Fechas consideradas: ${json.meta.fechas_consideradas}.`;
+  }
+
+  document.getElementById('btn_aplicar').addEventListener('click', cargarDatos);
+  // Primera carga
+  cargarDatos();
+})();
+</script>
+{% endblock %}
